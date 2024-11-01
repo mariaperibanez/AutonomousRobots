@@ -1,0 +1,2 @@
+- setup-file:
+    local-name: /home/arob/catkin_ws/devel/.private/lab2_drones/setup.sh

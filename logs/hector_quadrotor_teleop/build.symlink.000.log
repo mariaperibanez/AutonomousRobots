@@ -1,0 +1,4 @@
+Symlinking /home/arob/catkin_ws/devel/lib/hector_quadrotor_teleop/quadrotor_teleop
+Symlinking /home/arob/catkin_ws/devel/lib/pkgconfig/hector_quadrotor_teleop.pc
+Symlinking /home/arob/catkin_ws/devel/share/hector_quadrotor_teleop/cmake/hector_quadrotor_teleopConfig-version.cmake
+Symlinking /home/arob/catkin_ws/devel/share/hector_quadrotor_teleop/cmake/hector_quadrotor_teleopConfig.cmake

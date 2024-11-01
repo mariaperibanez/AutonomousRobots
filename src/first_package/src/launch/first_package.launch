@@ -1,0 +1,16 @@
+<launch>
+
+<node
+pkg="stage_ros"
+type="stageros"
+name="stage"
+args="$(find first_package)/world/simple.world"
+/>
+
+<node
+pkg="teleop_twist_keyboard_cpp"
+type="teleop_twist_keyboard_cpp.py"
+name="teleop"
+/>
+
+</launch>

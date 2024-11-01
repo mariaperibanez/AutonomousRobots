@@ -1,0 +1,1 @@
+/home/arob/catkin_ws/devel/.private/uuid_msgs/share/uuid_msgs/cmake/uuid_msgs-msg-extras.cmake

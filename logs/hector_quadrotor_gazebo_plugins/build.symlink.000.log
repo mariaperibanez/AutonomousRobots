@@ -1,0 +1,7 @@
+Symlinking /home/arob/catkin_ws/devel/lib/libhector_gazebo_quadrotor_aerodynamics.so
+Symlinking /home/arob/catkin_ws/devel/lib/libhector_gazebo_quadrotor_simple_controller2.so
+Symlinking /home/arob/catkin_ws/devel/lib/libhector_gazebo_quadrotor_propulsion.so
+Symlinking /home/arob/catkin_ws/devel/lib/libhector_gazebo_ros_baro2.so
+Symlinking /home/arob/catkin_ws/devel/lib/pkgconfig/hector_quadrotor_gazebo_plugins.pc
+Symlinking /home/arob/catkin_ws/devel/share/hector_quadrotor_gazebo_plugins/cmake/hector_quadrotor_gazebo_pluginsConfig.cmake
+Symlinking /home/arob/catkin_ws/devel/share/hector_quadrotor_gazebo_plugins/cmake/hector_quadrotor_gazebo_pluginsConfig-version.cmake

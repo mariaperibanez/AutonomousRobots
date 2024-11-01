@@ -1,0 +1,3 @@
+Symlinking /home/arob/catkin_ws/devel/lib/pkgconfig/hector_gazebo_worlds.pc
+Symlinking /home/arob/catkin_ws/devel/share/hector_gazebo_worlds/cmake/hector_gazebo_worldsConfig-version.cmake
+Symlinking /home/arob/catkin_ws/devel/share/hector_gazebo_worlds/cmake/hector_gazebo_worldsConfig.cmake

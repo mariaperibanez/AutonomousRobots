@@ -1,0 +1,8 @@
+prefix=/home/arob/catkin_ws/install
+
+Name: lab3_drones
+Description: Description of lab3_drones
+Version: 0.0.0
+Cflags: -I${prefix}/include
+Libs: -L${prefix}/lib 
+Requires: geometry_msgs nav_msgs visualization_msgs tf2 mav_trajectory_generation mav_trajectory_generation_ros

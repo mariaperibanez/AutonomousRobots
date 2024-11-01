@@ -1,0 +1,1 @@
+/home/arob/catkin_ws/devel/.private/turtle_comunic/share/turtle_comunic/cmake/turtle_comunicConfig-version.cmake

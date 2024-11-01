@@ -1,0 +1,8 @@
+prefix=/home/arob/catkin_ws/devel/.private/second_package
+
+Name: second_package
+Description: Description of second_package
+Version: 0.0.0
+Cflags: 
+Libs: -L${prefix}/lib 
+Requires: 

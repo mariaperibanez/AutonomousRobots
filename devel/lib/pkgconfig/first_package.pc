@@ -1,0 +1,1 @@
+/home/arob/catkin_ws/devel/.private/first_package/lib/pkgconfig/first_package.pc

@@ -1,0 +1,2 @@
+geographic_info/geographic_info
+/home/arob/catkin_ws/devel/.private/geographic_info/cmake.lock /home/arob/catkin_ws/devel/./cmake.lock

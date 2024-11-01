@@ -1,0 +1,1 @@
+/home/arob/catkin_ws/devel/.private/lab2_drones/share/lab2_drones/cmake/lab2_dronesConfig.cmake

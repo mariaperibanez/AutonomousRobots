@@ -1,0 +1,5 @@
+Symlinking /home/arob/catkin_ws/devel/lib/libhector_quadrotor_propulsion.so
+Symlinking /home/arob/catkin_ws/devel/lib/libhector_quadrotor_aerodynamics.so
+Symlinking /home/arob/catkin_ws/devel/lib/pkgconfig/hector_quadrotor_model.pc
+Symlinking /home/arob/catkin_ws/devel/share/hector_quadrotor_model/cmake/hector_quadrotor_modelConfig.cmake
+Symlinking /home/arob/catkin_ws/devel/share/hector_quadrotor_model/cmake/hector_quadrotor_modelConfig-version.cmake

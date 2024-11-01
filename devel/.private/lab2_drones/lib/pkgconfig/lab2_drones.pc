@@ -1,0 +1,8 @@
+prefix=/home/arob/catkin_ws/devel/.private/lab2_drones
+
+Name: lab2_drones
+Description: Description of lab2_drones
+Version: 0.0.0
+Cflags: -I/home/arob/catkin_ws/src/p03_arob_lab2_drones/include
+Libs: -L${prefix}/lib 
+Requires: geometry_msgs nav_msgs tf2

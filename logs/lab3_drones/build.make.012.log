@@ -1,0 +1,9 @@
+[35m[1mScanning dependencies of target drone_race[0m
+[ 33%] [32mBuilding CXX object CMakeFiles/drone_race.dir/src/drone_race.cpp.o[0m
+[01m[K/home/arob/catkin_ws/src/p00_arob_lab3_drones/src/drone_race.cpp:[m[K In member function ‘[01m[Kvoid DroneRace::generateTrajectory_()[m[K’:
+[01m[K/home/arob/catkin_ws/src/p00_arob_lab3_drones/src/drone_race.cpp:103:14:[m[K [01;31m[Kerror: [m[K‘[01m[Kgeometry_msgs::Pose[m[K’ {aka ‘[01m[Kstruct geometry_msgs::Pose_<std::allocator<void> >[m[K’} has no member named ‘[01m[KaddConstraint[m[K’
+  103 |         gate.[01;31m[KaddConstraint[m[K(mav_trajectory_generation::derivative_order::VELOCITY, Eigen::Vector3d(2,0,0));
+      |              [01;31m[K^~~~~~~~~~~~~[m[K
+make[2]: *** [CMakeFiles/drone_race.dir/build.make:63: CMakeFiles/drone_race.dir/src/drone_race.cpp.o] Error 1
+make[1]: *** [CMakeFiles/Makefile2:200: CMakeFiles/drone_race.dir/all] Error 2
+make: *** [Makefile:141: all] Error 2

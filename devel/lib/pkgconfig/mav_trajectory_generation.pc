@@ -1,0 +1,1 @@
+/home/arob/catkin_ws/devel/.private/mav_trajectory_generation/lib/pkgconfig/mav_trajectory_generation.pc

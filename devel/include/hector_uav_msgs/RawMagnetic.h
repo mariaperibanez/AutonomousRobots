@@ -1,0 +1,1 @@
+/home/arob/catkin_ws/devel/.private/hector_uav_msgs/include/hector_uav_msgs/RawMagnetic.h
