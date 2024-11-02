@@ -296,6 +296,9 @@ void DroneRace::drawGateMarkers_(geometry_msgs::Pose gate, int &id){
     marker.color.r = 1.0;
     marker.color.g = 1.0;
     marker.color.b = 0.0;
+    marker.scale.x = 0.5;
+    marker.scale.y = 0.5;
+    marker.scale.z = 0.5;
     marker.id = id + 1;
     line_marker.points.push_back(marker.pose.position);
     marker_array.markers.push_back(marker);
@@ -309,6 +312,9 @@ void DroneRace::drawGateMarkers_(geometry_msgs::Pose gate, int &id){
     marker.color.r = 1.0;
     marker.color.g = 0.0;
     marker.color.b = 0.0;
+    marker.scale.x = 0.2;
+    marker.scale.y = 0.2;
+    marker.scale.z = 0.2;
     marker.id = id + 2;
     line_marker.points.push_back(marker.pose.position);
     marker_array.markers.push_back(marker);
@@ -333,6 +339,9 @@ void DroneRace::drawGateMarkers_(geometry_msgs::Pose gate, int &id){
     marker.color.r = 1.0;
     marker.color.g = 1.0;
     marker.color.b = 0.0;
+    marker.scale.x = 0.5;
+    marker.scale.y = 0.5;
+    marker.scale.z = 0.5;
 
     marker.id = id + 4;
     marker_array.markers.push_back(marker);
