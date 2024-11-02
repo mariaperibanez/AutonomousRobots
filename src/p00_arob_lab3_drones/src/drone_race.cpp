@@ -98,9 +98,13 @@ void DroneRace::generateTrajectory_() {
     vertices.push_back(start);
 
     for (geometry_msgs::Pose gate : gates_) {
+        Eigen::Matrix<double, 3, 3> rotate_gate = quatToRMatrix_(gate.orientation);
+        Eigen::Vector3d desired_velocity(2,0,0);
+        Eigen::Vector3d velocity2 = rotate_gate * desired_velocity;
+    
         //Position constraint
         middlegate.addConstraint(mav_trajectory_generation::derivative_order::POSITION, Eigen::Vector3d(gate.position.x, gate.position.y, gate.position.z));
-        middlegate.addConstraint(mav_trajectory_generation::derivative_order::VELOCITY, Eigen::Vector3d(2,0,0));
+        middlegate.addConstraint(mav_trajectory_generation::derivative_order::VELOCITY, velocity2);
         vertices.push_back(middlegate);
     }
     
