@@ -49,6 +49,9 @@ private:
     mav_trajectory_generation::Trajectory trajectory_;
     std::vector<Eigen::Vector3f> goal_list_;
     std::vector<Eigen::Vector3f> goal_vel_list_;
+
+    mav_msgs::EigenTrajectoryPoint::Vector commands;
+
     
     // Control
     int current_goal_idx_;

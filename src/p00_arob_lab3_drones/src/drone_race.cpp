@@ -160,8 +160,7 @@ void DroneRace::generateTrajectory_() {
 
     // Generate list of commands to publish to the drone
     // INCLUDE YOUR CODE HERE
-    mav_msgs::EigenTrajectoryPoint::Vector commands;
-
+    this->commands.clear();
     double current_time = 0.0;
 
     
@@ -171,10 +170,8 @@ void DroneRace::generateTrajectory_() {
         command.position_W = state.position_W;
         command.velocity_W = state.velocity_W;       
 
-        command.setDuration(current_time);
-
         current_time += sampling_interval;
-        commands.push_back(command);       
+        this->commands.push_back(command);       
     }
 
 }

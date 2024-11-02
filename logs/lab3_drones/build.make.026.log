@@ -1,0 +1,33 @@
+[35m[1mScanning dependencies of target drone_race[0m
+[ 33%] [32mBuilding CXX object CMakeFiles/drone_race.dir/src/drone_race_node.cpp.o[0m
+[ 66%] [32mBuilding CXX object CMakeFiles/drone_race.dir/src/drone_race.cpp.o[0m
+[01m[K/home/arob/catkin_ws/src/p00_arob_lab3_drones/src/drone_race.cpp:[m[K In member function ‘[01m[Kvoid DroneRace::commandTimerCallback_(const ros::TimerEvent&)[m[K’:
+[01m[K/home/arob/catkin_ws/src/p00_arob_lab3_drones/src/drone_race.cpp:85:33:[m[K [01;31m[Kerror: [m[Kno match for ‘[01m[Koperator=[m[K’ (operand types are ‘[01m[Kgeometry_msgs::PoseStamped[m[K’ {aka ‘[01m[Kgeometry_msgs::PoseStamped_<std::allocator<void> >[m[K’} and ‘[01m[KEigen::Vector3d[m[K’ {aka ‘[01m[KEigen::Matrix<double, 3, 1>[m[K’})
+   85 |         goal_ = commands.back().[01;31m[Kposition_W[m[K;
+      |                                 [01;31m[K^~~~~~~~~~[m[K
+In file included from [01m[K/home/arob/catkin_ws/src/p00_arob_lab3_drones/include/lab3_drones/drone_race.hpp:14[m[K,
+                 from [01m[K/home/arob/catkin_ws/src/p00_arob_lab3_drones/src/drone_race.cpp:1[m[K:
+[01m[K/opt/ros/noetic/include/geometry_msgs/PoseStamped.h:24:8:[m[K [01;36m[Knote: [m[Kcandidate: ‘[01m[Kgeometry_msgs::PoseStamped_<std::allocator<void> >& geometry_msgs::PoseStamped_<std::allocator<void> >::operator=(const geometry_msgs::PoseStamped_<std::allocator<void> >&)[m[K’
+   24 | struct [01;36m[KPoseStamped_[m[K
+      |        [01;36m[K^~~~~~~~~~~~[m[K
+[01m[K/opt/ros/noetic/include/geometry_msgs/PoseStamped.h:24:8:[m[K [01;36m[Knote: [m[K  no known conversion for argument 1 from ‘[01m[KEigen::Vector3d[m[K’ {aka ‘[01m[KEigen::Matrix<double, 3, 1>[m[K’} to ‘[01m[Kconst geometry_msgs::PoseStamped_<std::allocator<void> >&[m[K’
+[01m[K/opt/ros/noetic/include/geometry_msgs/PoseStamped.h:24:8:[m[K [01;36m[Knote: [m[Kcandidate: ‘[01m[Kgeometry_msgs::PoseStamped_<std::allocator<void> >& geometry_msgs::PoseStamped_<std::allocator<void> >::operator=(geometry_msgs::PoseStamped_<std::allocator<void> >&&)[m[K’
+[01m[K/opt/ros/noetic/include/geometry_msgs/PoseStamped.h:24:8:[m[K [01;36m[Knote: [m[K  no known conversion for argument 1 from ‘[01m[KEigen::Vector3d[m[K’ {aka ‘[01m[KEigen::Matrix<double, 3, 1>[m[K’} to ‘[01m[Kgeometry_msgs::PoseStamped_<std::allocator<void> >&&[m[K’
+[01m[K/home/arob/catkin_ws/src/p00_arob_lab3_drones/src/drone_race.cpp:89:37:[m[K [01;31m[Kerror: [m[Kno match for ‘[01m[Koperator=[m[K’ (operand types are ‘[01m[Kgeometry_msgs::Twist[m[K’ {aka ‘[01m[Kgeometry_msgs::Twist_<std::allocator<void> >[m[K’} and ‘[01m[KEigen::Vector3d[m[K’ {aka ‘[01m[KEigen::Matrix<double, 3, 1>[m[K’})
+   89 |         goal_vel_ = commands.back().[01;31m[Kvelocity_W[m[K;
+      |                                     [01;31m[K^~~~~~~~~~[m[K
+In file included from [01m[K/home/arob/catkin_ws/src/p00_arob_lab3_drones/include/lab3_drones/drone_race.hpp:13[m[K,
+                 from [01m[K/home/arob/catkin_ws/src/p00_arob_lab3_drones/src/drone_race.cpp:1[m[K:
+[01m[K/opt/ros/noetic/include/geometry_msgs/Twist.h:24:8:[m[K [01;36m[Knote: [m[Kcandidate: ‘[01m[Kgeometry_msgs::Twist_<std::allocator<void> >& geometry_msgs::Twist_<std::allocator<void> >::operator=(const geometry_msgs::Twist_<std::allocator<void> >&)[m[K’
+   24 | struct [01;36m[KTwist_[m[K
+      |        [01;36m[K^~~~~~[m[K
+[01m[K/opt/ros/noetic/include/geometry_msgs/Twist.h:24:8:[m[K [01;36m[Knote: [m[K  no known conversion for argument 1 from ‘[01m[KEigen::Vector3d[m[K’ {aka ‘[01m[KEigen::Matrix<double, 3, 1>[m[K’} to ‘[01m[Kconst geometry_msgs::Twist_<std::allocator<void> >&[m[K’
+[01m[K/opt/ros/noetic/include/geometry_msgs/Twist.h:24:8:[m[K [01;36m[Knote: [m[Kcandidate: ‘[01m[Kgeometry_msgs::Twist_<std::allocator<void> >& geometry_msgs::Twist_<std::allocator<void> >::operator=(geometry_msgs::Twist_<std::allocator<void> >&&)[m[K’
+[01m[K/opt/ros/noetic/include/geometry_msgs/Twist.h:24:8:[m[K [01;36m[Knote: [m[K  no known conversion for argument 1 from ‘[01m[KEigen::Vector3d[m[K’ {aka ‘[01m[KEigen::Matrix<double, 3, 1>[m[K’} to ‘[01m[Kgeometry_msgs::Twist_<std::allocator<void> >&&[m[K’
+[01m[K/home/arob/catkin_ws/src/p00_arob_lab3_drones/src/drone_race.cpp:[m[K In member function ‘[01m[Kvoid DroneRace::generateTrajectory_()[m[K’:
+[01m[K/home/arob/catkin_ws/src/p00_arob_lab3_drones/src/drone_race.cpp:173:17:[m[K [01;31m[Kerror: [m[K‘[01m[Kstruct mav_msgs::EigenTrajectoryPoint[m[K’ has no member named ‘[01m[KsetDuration[m[K’
+  173 |         command.[01;31m[KsetDuration[m[K(current_time);
+      |                 [01;31m[K^~~~~~~~~~~[m[K
+make[2]: *** [CMakeFiles/drone_race.dir/build.make:63: CMakeFiles/drone_race.dir/src/drone_race.cpp.o] Error 1
+make[1]: *** [CMakeFiles/Makefile2:200: CMakeFiles/drone_race.dir/all] Error 2
+make: *** [Makefile:141: all] Error 2
