@@ -81,6 +81,12 @@ void DroneRace::commandTimerCallback_(const ros::TimerEvent& event) {
     // should be controlled with the "is_control_pose_" variable.
     // Remember to remove the /controller/pose for controlling with the
     // /cmd_vel.
+    if (is_pose_control_) {
+        pub_goal_.publish(goal_);
+    } else {
+        ROS_INFO("Controlling with velocity");
+        pub_cmd_vel_.publish(goal_vel_);
+    }
 }
 
 void DroneRace::generateTrajectory_() {
@@ -152,6 +158,27 @@ void DroneRace::generateTrajectory_() {
 
     // Generate list of commands to publish to the drone
     // INCLUDE YOUR CODE HERE
+    if (is_pose_control_) {
+        for (const auto& state :states) {
+            geometry_msgs::PoseStamped pose_msg;
+            pose_msg.header.stamp = ros::Time::now();
+            pose_msg.header.frame_id = "world";
+            pose_msg.pose.position.x = state.position_W[0];
+            pose_msg.pose.position.y = state.position_W[1];
+            pose_msg.pose.position.z = state.position_W[2];        
+
+            pub_goal_.publish(pose_msg);        
+        }
+    } else {
+        for (const auto& state :states) {
+            geometry_msgs::Twist twist_msg;
+            twist_msg.linear.x = state.velocity_W[0];
+            twist_msg.linear.y = state.velocity_W[1];
+            twist_msg.linear.z = state.velocity_W[2];        
+
+            pub_cmd_vel_.publish(twist_msg);        
+        }
+    }
 }
 
 void DroneRace::generateTrajectoryExample_() {

@@ -1,0 +1,31 @@
+[35m[1mScanning dependencies of target drone_race[0m
+[ 33%] [32mBuilding CXX object CMakeFiles/drone_race.dir/src/drone_race.cpp.o[0m
+[01m[K/home/arob/catkin_ws/src/p00_arob_lab3_drones/src/drone_race.cpp:[m[K In member function ‘[01m[Kvoid DroneRace::commandTimerCallback_(const ros::TimerEvent&)[m[K’:
+[01m[K/home/arob/catkin_ws/src/p00_arob_lab3_drones/src/drone_race.cpp:84:9:[m[K [01;31m[Kerror: [m[K‘[01m[Kis_control_pose[m[K’ was not declared in this scope
+   84 |     if ([01;31m[Kis_control_pose[m[K) {
+      |         [01;31m[K^~~~~~~~~~~~~~~[m[K
+[01m[K/home/arob/catkin_ws/src/p00_arob_lab3_drones/src/drone_race.cpp:88:9:[m[K [01;31m[Kerror: [m[K‘[01m[Kpub_cdm_vel_[m[K’ was not declared in this scope; did you mean ‘[01m[Kpub_cmd_vel_[m[K’?
+   88 |         [01;31m[Kpub_cdm_vel_[m[K.publish(goal_vel_);
+      |         [01;31m[K^~~~~~~~~~~~[m[K
+      |         [32m[Kpub_cmd_vel_[m[K
+[01m[K/home/arob/catkin_ws/src/p00_arob_lab3_drones/src/drone_race.cpp:[m[K In member function ‘[01m[Kvoid DroneRace::generateTrajectory_()[m[K’:
+[01m[K/home/arob/catkin_ws/src/p00_arob_lab3_drones/src/drone_race.cpp:161:9:[m[K [01;31m[Kerror: [m[K‘[01m[Kis_pose_control[m[K’ was not declared in this scope; did you mean ‘[01m[Kis_pose_control_[m[K’?
+  161 |     if ([01;31m[Kis_pose_control[m[K) {
+      |         [01;31m[K^~~~~~~~~~~~~~~[m[K
+      |         [32m[Kis_pose_control_[m[K
+[01m[K/home/arob/catkin_ws/src/p00_arob_lab3_drones/src/drone_race.cpp:165:29:[m[K [01;31m[Kerror: [m[K‘[01m[Kgeometry_msgs::PoseStamped_<std::allocator<void> >::_header_type[m[K’ {aka ‘[01m[Kstruct std_msgs::Header_<std::allocator<void> >[m[K’} has no member named ‘[01m[Kfame_id[m[K’; did you mean ‘[01m[Kframe_id[m[K’?
+  165 |             pose_msg.header.[01;31m[Kfame_id[m[K = "world";
+      |                             [01;31m[K^~~~~~~[m[K
+      |                             [32m[Kframe_id[m[K
+[01m[K/home/arob/catkin_ws/src/p00_arob_lab3_drones/src/drone_race.cpp:175:23:[m[K [01;31m[Kerror: [m[K‘[01m[Kgeometry_msgs::Twist[m[K’ {aka ‘[01m[Kstruct geometry_msgs::Twist_<std::allocator<void> >[m[K’} has no member named ‘[01m[Kpose[m[K’
+  175 |             twist_msg.[01;31m[Kpose[m[K.linear.x = state.velocity_W[0];
+      |                       [01;31m[K^~~~[m[K
+[01m[K/home/arob/catkin_ws/src/p00_arob_lab3_drones/src/drone_race.cpp:176:23:[m[K [01;31m[Kerror: [m[K‘[01m[Kgeometry_msgs::Twist[m[K’ {aka ‘[01m[Kstruct geometry_msgs::Twist_<std::allocator<void> >[m[K’} has no member named ‘[01m[Kpose[m[K’
+  176 |             twist_msg.[01;31m[Kpose[m[K.linear.y = state.velocity_W[1];
+      |                       [01;31m[K^~~~[m[K
+[01m[K/home/arob/catkin_ws/src/p00_arob_lab3_drones/src/drone_race.cpp:177:23:[m[K [01;31m[Kerror: [m[K‘[01m[Kgeometry_msgs::Twist[m[K’ {aka ‘[01m[Kstruct geometry_msgs::Twist_<std::allocator<void> >[m[K’} has no member named ‘[01m[Kpose[m[K’
+  177 |             twist_msg.[01;31m[Kpose[m[K.linear.z = state.velocity_W[2];
+      |                       [01;31m[K^~~~[m[K
+make[2]: *** [CMakeFiles/drone_race.dir/build.make:63: CMakeFiles/drone_race.dir/src/drone_race.cpp.o] Error 1
+make[1]: *** [CMakeFiles/Makefile2:200: CMakeFiles/drone_race.dir/all] Error 2
+make: *** [Makefile:141: all] Error 2
