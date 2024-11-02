@@ -1,0 +1,20 @@
+[01m[K/home/arob/catkin_ws/src/p00_arob_lab3_drones/src/drone_race.cpp:[m[K In member function ‘[01m[Kvoid DroneRace::commandTimerCallback_(const ros::TimerEvent&)[m[K’:
+[01m[K/home/arob/catkin_ws/src/p00_arob_lab3_drones/src/drone_race.cpp:85:23:[m[K [01;31m[Kerror: [m[K‘[01m[Kconst struct ros::TimerEvent[m[K’ has no member named ‘[01m[Kback[m[K’
+   85 |         goal_ = event.[01;31m[Kback[m[K().position_W;
+      |                       [01;31m[K^~~~[m[K
+[01m[K/home/arob/catkin_ws/src/p00_arob_lab3_drones/src/drone_race.cpp:89:27:[m[K [01;31m[Kerror: [m[K‘[01m[Kconst struct ros::TimerEvent[m[K’ has no member named ‘[01m[Kback[m[K’
+   89 |         goal_vel_ = event.[01;31m[Kback[m[K().velocity_W;
+      |                           [01;31m[K^~~~[m[K
+[01m[K/home/arob/catkin_ws/src/p00_arob_lab3_drones/src/drone_race.cpp:[m[K In member function ‘[01m[Kvoid DroneRace::generateTrajectory_()[m[K’:
+[01m[K/home/arob/catkin_ws/src/p00_arob_lab3_drones/src/drone_race.cpp:163:28:[m[K [01;31m[Kerror: [m[K‘[01m[Kcommands[m[K’ declared as reference but not initialized
+  163 |     const ros::TimerEvent& [01;31m[Kcommands[m[K;
+      |                            [01;31m[K^~~~~~~~[m[K
+[01m[K/home/arob/catkin_ws/src/p00_arob_lab3_drones/src/drone_race.cpp:174:17:[m[K [01;31m[Kerror: [m[K‘[01m[Kstruct mav_msgs::EigenTrajectoryPoint[m[K’ has no member named ‘[01m[KsetDuration[m[K’
+  174 |         command.[01;31m[KsetDuration[m[K(current_time);
+      |                 [01;31m[K^~~~~~~~~~~[m[K
+[01m[K/home/arob/catkin_ws/src/p00_arob_lab3_drones/src/drone_race.cpp:177:18:[m[K [01;31m[Kerror: [m[K‘[01m[Kconst struct ros::TimerEvent[m[K’ has no member named ‘[01m[Kpush_back[m[K’
+  177 |         commands.[01;31m[Kpush_back[m[K(command);
+      |                  [01;31m[K^~~~~~~~~[m[K
+make[2]: *** [CMakeFiles/drone_race.dir/build.make:63: CMakeFiles/drone_race.dir/src/drone_race.cpp.o] Error 1
+make[1]: *** [CMakeFiles/Makefile2:200: CMakeFiles/drone_race.dir/all] Error 2
+make: *** [Makefile:141: all] Error 2
