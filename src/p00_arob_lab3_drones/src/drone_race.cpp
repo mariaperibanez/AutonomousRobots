@@ -9,7 +9,7 @@ DroneRace::DroneRace(ros::NodeHandle nh) : nh_(nh)
     if (!nh_.getParam("targets_file_path", targets_file_path_))
     {
         ROS_WARN("There is no 'targets_file_path' parameter. Using default value.");
-        targets_file_path_ = "/home/arob/catkin_ws/src/p00_arob_lab3_drones/data/gates_hard.txt";
+        targets_file_path_ = "/home/arob/catkin_ws/src/p00_arob_lab3_drones/data/gates.txt";
     }
     // Try to open the targets file.
     if (!readGates_(targets_file_path_))
@@ -81,13 +81,23 @@ void DroneRace::commandTimerCallback_(const ros::TimerEvent& event) {
     // should be controlled with the "is_control_pose_" variable.
     // Remember to remove the /controller/pose for controlling with the
     // /cmd_vel.
-    if (is_pose_control_) {
-        goal_ = commands.back().position_W;
-        pub_goal_.publish(goal_);
+    if (current_goal_idx < commands.size()) {
+        if (is_pose_control_) {
+            goal_.pose.position.x = commands[current_goal_idx].position_W.x();
+            goal_.pose.position.y = commands[current_goal_idx].position_W.y();
+            goal_.pose.position.z = commands[current_goal_idx].position_W.z();
+            pub_goal_.publish(goal_);
+        } else {
+            ROS_INFO("Controlling with velocity");
+            goal_vel_.linear.x = commands[current_goal_idx].velocity_W.x();
+            goal_vel_.linear.y = commands[current_goal_idx].velocity_W.y();
+            goal_vel_.linear.z = commands[current_goal_idx].velocity_W.z();
+            pub_cmd_vel_.publish(goal_vel_);
+        }
+        current_goal_idx++;
     } else {
-        ROS_INFO("Controlling with velocity");
-        goal_vel_ = commands.back().velocity_W;
-        pub_cmd_vel_.publish(goal_vel_);
+        ROS_INFO("End of trajectory");
+        cmd_timer_.stop();
     }
 }
 
@@ -164,15 +174,15 @@ void DroneRace::generateTrajectory_() {
     double current_time = 0.0;
 
     
-    for (const auto& state :states) {
-        mav_msgs::EigenTrajectoryPoint command;
+    //for (const auto& state :states) {
+      //  mav_msgs::EigenTrajectoryPoint command;
 
-        command.position_W = state.position_W;
-        command.velocity_W = state.velocity_W;       
+        //command.position_W = state.position_W;
+        //command.velocity_W = state.velocity_W;       
 
-        current_time += sampling_interval;
-        this->commands.push_back(command);       
-    }
+        //current_time += sampling_interval;
+        //this->commands.push_back(command);       
+    //}
 
 }
 

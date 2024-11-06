@@ -1,9 +1,0 @@
-[35m[1mScanning dependencies of target followTargets3D[0m
-[ 33%] [32mBuilding CXX object CMakeFiles/followTargets3D.dir/src/follow_targets_3d.cpp.o[0m
-[01m[K/home/arob/catkin_ws/src/p03_arob_lab2_drones/src/follow_targets_3d.cpp:[m[K In member function ‘[01m[Kvoid FollowTargets3D::odometryCallback_(const Odometry&)[m[K’:
-[01m[K/home/arob/catkin_ws/src/p03_arob_lab2_drones/src/follow_targets_3d.cpp:97:10:[m[K [01;31m[Kerror: [m[K‘[01m[Kodometry_received_[m[K’ was not declared in this scope
-   97 |     if (![01;31m[Kodometry_received_[m[K){
-      |          [01;31m[K^~~~~~~~~~~~~~~~~~[m[K
-make[2]: *** [CMakeFiles/followTargets3D.dir/build.make:76: CMakeFiles/followTargets3D.dir/src/follow_targets_3d.cpp.o] Error 1
-make[1]: *** [CMakeFiles/Makefile2:175: CMakeFiles/followTargets3D.dir/all] Error 2
-make: *** [Makefile:141: all] Error 2

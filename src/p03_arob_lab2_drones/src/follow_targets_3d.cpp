@@ -7,7 +7,7 @@ FollowTargets3D::FollowTargets3D(ros::NodeHandle nh) : nh_(nh)
     if (!nh_.getParam("targets_file_path", targets_file_path_))
     {
         ROS_WARN("There is no 'targets_file_path' parameter. Using default value.");
-        targets_file_path_ = "/home/arob/catkin_ws/src/p03_arob_lab2_drones/data/targets.txt";
+        targets_file_path_ = "/home/arob/catkin_ws/src/p03_arob_lab2_drones/data/targets6.txt";
     }
     // Try to open the targets file.
     if (!readTargets_(targets_file_path_))
