@@ -1,10 +1,8 @@
-prefix=/home/arob/catkin_ws/install
-exec_prefix=${prefix}
-libdir=${exec_prefix}/lib
-includedir=${prefix}/include
+prefix=/home/arob/catkin_ws/devel/.private/nlopt
 
-Name: NLopt
-Description: nonlinear optimization libary
-Version: 2.4.2
-Libs: -L${libdir} -lnlopt -lm
-Cflags: -I${includedir}
+Name: nlopt
+Description: Description of nlopt
+Version: 2.4.1
+Cflags: -I/home/arob/catkin_ws/devel/.private/nlopt/include
+Libs: -L${prefix}/lib -lnlopt_wrap
+Requires: 

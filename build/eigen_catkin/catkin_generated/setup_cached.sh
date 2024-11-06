@@ -8,6 +8,8 @@
 
 # modified environment variables
 export CMAKE_PREFIX_PATH="/home/arob/catkin_ws/devel/.private/eigen_catkin:$CMAKE_PREFIX_PATH"
+export LD_LIBRARY_PATH="/home/arob/catkin_ws/devel/.private/eigen_catkin/lib:$LD_LIBRARY_PATH"
+export PKG_CONFIG_PATH="/home/arob/catkin_ws/devel/.private/eigen_catkin/lib/pkgconfig:$PKG_CONFIG_PATH"
 export PWD='/home/arob/catkin_ws/build/eigen_catkin'
 export ROSLISP_PACKAGE_DIRECTORIES="/home/arob/catkin_ws/devel/.private/eigen_catkin/share/common-lisp:$ROSLISP_PACKAGE_DIRECTORIES"
 export ROS_PACKAGE_PATH="/home/arob/catkin_ws/src/eigen_catkin:$ROS_PACKAGE_PATH"

@@ -1,1 +1,1 @@
-set(ORDERED_PATHS "/home/arob/catkin_ws/devel/.private/glog_catkin/lib")
+set(ORDERED_PATHS "/home/arob/catkin_ws/devel/.private/glog_catkin/include;/usr/include/eigen3")

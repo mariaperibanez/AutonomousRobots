@@ -21,7 +21,7 @@ DroneRace::DroneRace(ros::NodeHandle nh) : nh_(nh)
     current_goal_idx_ = 0;
 
     // This variable will control if we are in pose or cmd_vel control mode
-    is_pose_control_ = false;
+    is_pose_control_ = true;
 
     pub_goal_ = nh_.advertise<geometry_msgs::PoseStamped>("/command/pose", 1000);
     pub_cmd_vel_ = nh_.advertise<geometry_msgs::Twist>("/cmd_vel", 1000);
@@ -81,20 +81,20 @@ void DroneRace::commandTimerCallback_(const ros::TimerEvent& event) {
     // should be controlled with the "is_control_pose_" variable.
     // Remember to remove the /controller/pose for controlling with the
     // /cmd_vel.
-    if (current_goal_idx < commands.size()) {
+    if (current_goal_idx_ < commands.size()) {
         if (is_pose_control_) {
-            goal_.pose.position.x = commands[current_goal_idx].position_W.x();
-            goal_.pose.position.y = commands[current_goal_idx].position_W.y();
-            goal_.pose.position.z = commands[current_goal_idx].position_W.z();
+            goal_.pose.position.x = commands[current_goal_idx_].position_W.x();
+            goal_.pose.position.y = commands[current_goal_idx_].position_W.y();
+            goal_.pose.position.z = commands[current_goal_idx_].position_W.z();
             pub_goal_.publish(goal_);
         } else {
             ROS_INFO("Controlling with velocity");
-            goal_vel_.linear.x = commands[current_goal_idx].velocity_W.x();
-            goal_vel_.linear.y = commands[current_goal_idx].velocity_W.y();
-            goal_vel_.linear.z = commands[current_goal_idx].velocity_W.z();
+            goal_vel_.linear.x = commands[current_goal_idx_].velocity_W.x();
+            goal_vel_.linear.y = commands[current_goal_idx_].velocity_W.y();
+            goal_vel_.linear.z = commands[current_goal_idx_].velocity_W.z();
             pub_cmd_vel_.publish(goal_vel_);
         }
-        current_goal_idx++;
+        current_goal_idx_++;
     } else {
         ROS_INFO("End of trajectory");
         cmd_timer_.stop();
@@ -105,7 +105,7 @@ void DroneRace::generateTrajectory_() {
     //constants
     const int dimension = 3; //we only compute the trajectory in x, y and z
     const int derivative_to_optimize = mav_trajectory_generation::derivative_order::SNAP; //POSITION, VELOCITY, ACCELERATION, JERK, SNAP
-    const float vel_gate_mod = 1.0; // desired velocity to cross the gate. Adjust for max performance
+    const float vel_gate_mod = 3.0; // desired velocity to cross the gate. Adjust for max performance
 
     mav_trajectory_generation::Vertex::Vector vertices;
     // INCLUDE YOUR CODE HERE
@@ -117,7 +117,7 @@ void DroneRace::generateTrajectory_() {
 
     for (geometry_msgs::Pose gate : gates_) {
         Eigen::Matrix<double, 3, 3> rotate_gate = quatToRMatrix_(gate.orientation);
-        Eigen::Vector3d desired_velocity(2,0,0);
+        Eigen::Vector3d desired_velocity(vel_gate_mod,0,0);
         Eigen::Vector3d velocity2 = rotate_gate * desired_velocity;
     
         //Position constraint
@@ -133,8 +133,8 @@ void DroneRace::generateTrajectory_() {
     // Provide the time constraints on the vertices
     std::vector<double> segment_times;
     // INCLUDE YOUR CODE HERE
-    const double v_max = 2.0;
-    const double a_max = 2.0;
+    const double v_max = 3.0;
+    const double a_max = 3.0;
     segment_times = estimateSegmentTimes(vertices, v_max, a_max);
     cout << "Segment times = " << segment_times.size() << endl;
     
@@ -174,15 +174,15 @@ void DroneRace::generateTrajectory_() {
     double current_time = 0.0;
 
     
-    //for (const auto& state :states) {
-      //  mav_msgs::EigenTrajectoryPoint command;
+    for (const auto& state :states) {
+        mav_msgs::EigenTrajectoryPoint command;
 
-        //command.position_W = state.position_W;
-        //command.velocity_W = state.velocity_W;       
+        command.position_W = state.position_W;
+        command.velocity_W = state.velocity_W;       
 
-        //current_time += sampling_interval;
-        //this->commands.push_back(command);       
-    //}
+        current_time += sampling_interval;
+        this->commands.push_back(command);       
+    }
 
 }
 
@@ -290,15 +290,15 @@ void DroneRace::drawGateMarkers_(geometry_msgs::Pose gate, int &id){
 
     marker.header.frame_id = "world";  // Change this frame_id according to your setup
     marker.header.stamp = ros::Time::now();
-    marker.type = visualization_msgs::Marker::CUBE;
+    marker.type = visualization_msgs::Marker::SPHERE;
     marker.action = visualization_msgs::Marker::ADD;
     marker.ns = "corner";
-    marker.scale.x = 0.2;
-    marker.scale.y = 0.2;
-    marker.scale.z = 0.2;
+    marker.scale.x = 0.5;
+    marker.scale.y = 0.5;
+    marker.scale.z = 0.5;
     marker.color.a = 1.0;
     marker.color.r = 1.0;
-    marker.color.g = 0.0;
+    marker.color.g = 1.0;
     marker.color.b = 0.0;
     marker.pose.orientation.w = 1.0;
     marker.lifetime = ros::Duration();
@@ -328,13 +328,6 @@ void DroneRace::drawGateMarkers_(geometry_msgs::Pose gate, int &id){
     marker.pose.position.x = position2(0);
     marker.pose.position.y = position2(1);
     marker.pose.position.z = position2(2);
-    marker.type = visualization_msgs::Marker::SPHERE;
-    marker.color.r = 1.0;
-    marker.color.g = 1.0;
-    marker.color.b = 0.0;
-    marker.scale.x = 0.5;
-    marker.scale.y = 0.5;
-    marker.scale.z = 0.5;
     marker.id = id + 1;
     line_marker.points.push_back(marker.pose.position);
     marker_array.markers.push_back(marker);

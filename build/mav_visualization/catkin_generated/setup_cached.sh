@@ -8,6 +8,8 @@
 
 # modified environment variables
 export CMAKE_PREFIX_PATH="/home/arob/catkin_ws/devel/.private/mav_visualization:$CMAKE_PREFIX_PATH"
+export LD_LIBRARY_PATH="/home/arob/catkin_ws/devel/.private/mav_visualization/lib:$LD_LIBRARY_PATH"
+export PKG_CONFIG_PATH="/home/arob/catkin_ws/devel/.private/mav_visualization/lib/pkgconfig:$PKG_CONFIG_PATH"
 export PWD='/home/arob/catkin_ws/build/mav_visualization'
 export ROSLISP_PACKAGE_DIRECTORIES="/home/arob/catkin_ws/devel/.private/mav_visualization/share/common-lisp:$ROSLISP_PACKAGE_DIRECTORIES"
 export ROS_PACKAGE_PATH="/home/arob/catkin_ws/src/mav_trajectory_generation/mav_visualization:$ROS_PACKAGE_PATH"

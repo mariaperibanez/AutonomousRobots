@@ -304,7 +304,10 @@ EMPY_EXECUTABLE:FILEPATH=EMPY_EXECUTABLE-NOTFOUND
 EMPY_SCRIPT:STRING=/usr/lib/python3/dist-packages/em.py
 
 //Path to a file.
-GLOG_INCLUDE_DIR:PATH=GLOG_INCLUDE_DIR-NOTFOUND
+GLOG_INCLUDE_DIR:PATH=/home/arob/catkin_ws/devel/.private/glog_catkin/include
+
+//Path to a library.
+GLOG_LIBRARY:FILEPATH=/home/arob/catkin_ws/devel/.private/glog_catkin/lib/libglog.so
 
 //The directory containing a CMake configuration file for GMock.
 GMock_DIR:PATH=GMock_DIR-NOTFOUND
@@ -631,6 +634,8 @@ CMAKE_STRIP-ADVANCED:INTERNAL=1
 CMAKE_UNAME:INTERNAL=/usr/bin/uname
 //ADVANCED property for variable: CMAKE_VERBOSE_MAKEFILE
 CMAKE_VERBOSE_MAKEFILE-ADVANCED:INTERNAL=1
+//Details about finding Glog
+FIND_PACKAGE_MESSAGE_DETAILS_Glog:INTERNAL=[/home/arob/catkin_ws/devel/.private/glog_catkin/include][/home/arob/catkin_ws/devel/.private/glog_catkin/lib/libglog.so][v()]
 //Details about finding PY_em
 FIND_PACKAGE_MESSAGE_DETAILS_PY_em:INTERNAL=[/usr/lib/python3/dist-packages/em.py][v()]
 //Details about finding PythonInterp
@@ -638,7 +643,9 @@ FIND_PACKAGE_MESSAGE_DETAILS_PythonInterp:INTERNAL=[/usr/bin/python3][v3.8.10()]
 //Details about finding Threads
 FIND_PACKAGE_MESSAGE_DETAILS_Threads:INTERNAL=[TRUE][v()]
 //ADVANCED property for variable: GLOG_INCLUDE_DIR
-GLOG_INCLUDE_DIR-ADVANCED:INTERNAL=0
+GLOG_INCLUDE_DIR-ADVANCED:INTERNAL=1
+//ADVANCED property for variable: GLOG_LIBRARY
+GLOG_LIBRARY-ADVANCED:INTERNAL=1
 GMOCK_FROM_SOURCE_FOUND:INTERNAL=TRUE
 GMOCK_FROM_SOURCE_INCLUDE_DIRS:INTERNAL=/usr/src/googletest/googlemock/include
 GMOCK_FROM_SOURCE_LIBRARIES:INTERNAL=gmock
@@ -669,6 +676,8 @@ PYTHON_INSTALL_DIR:INTERNAL=lib/python3/dist-packages
 USE_SYSTEM_GLOG:INTERNAL=AUTO
 //CMAKE_INSTALL_PREFIX during last run
 _GNUInstallDirs_LAST_CMAKE_INSTALL_PREFIX:INTERNAL=/home/arob/catkin_ws/install
+//ADVANCED property for variable: glog_DIR
+glog_DIR-ADVANCED:INTERNAL=1
 //ADVANCED property for variable: gmock_build_tests
 gmock_build_tests-ADVANCED:INTERNAL=1
 //ADVANCED property for variable: gtest_build_samples

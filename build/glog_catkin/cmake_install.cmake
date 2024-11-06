@@ -129,14 +129,6 @@ file(INSTALL DESTINATION "/home/arob/catkin_ws/install" TYPE FILE FILES "/home/a
 endif()
 
 if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_COMPONENT)
-  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/include" TYPE DIRECTORY FILES "/home/arob/catkin_ws/devel/.private/glog_catkin/include/glog" FILES_MATCHING REGEX "/[^/]*\\.h$")
-endif()
-
-if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_COMPONENT)
-  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/lib" TYPE DIRECTORY FILES "/home/arob/catkin_ws/devel/.private/glog_catkin/lib/" FILES_MATCHING REGEX "/libglog[^/]*$")
-endif()
-
-if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_COMPONENT)
   file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/lib/pkgconfig" TYPE FILE FILES "/home/arob/catkin_ws/build/glog_catkin/catkin_generated/installspace/glog_catkin.pc")
 endif()
 
