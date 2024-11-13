@@ -169,7 +169,11 @@ namespace p03_llc_local_planner{
 		// Check the goal
 		double rho = euclideanDistance(robot_pose.pose, goal.pose);
 
-		if (rho < rho_th_) {
+		double orientation_robot = tf::getYaw(robot_pose.pose.orientation);
+		double orientation_goal = tf::getYaw(goal.pose.orientation);
+		double orientation_dif = orientation_goal - orientation_robot;
+
+		if (rho < rho_th_ && orientation_dif == 0) {
 			ROS_INFO("GOAL REACHED");
 			goalReached = true;
 		}
