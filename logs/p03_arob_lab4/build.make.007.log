@@ -1,0 +1,4 @@
+[35m[1mScanning dependencies of target p03_llc_local_planner_lib[0m
+[ 50%] [32mBuilding CXX object CMakeFiles/p03_llc_local_planner_lib.dir/src/llc_local_planner.cpp.o[0m
+[100%] [32m[1mLinking CXX shared library /home/arob/catkin_ws/devel/.private/p03_arob_lab4/lib/libp03_llc_local_planner_lib.so[0m
+[100%] Built target p03_llc_local_planner_lib

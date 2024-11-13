@@ -8,6 +8,8 @@
 
 # modified environment variables
 export CMAKE_PREFIX_PATH="/home/arob/catkin_ws/devel/.private/hector_quadrotor_model:$CMAKE_PREFIX_PATH"
+export LD_LIBRARY_PATH="/home/arob/catkin_ws/devel/.private/hector_quadrotor_model/lib:$LD_LIBRARY_PATH"
+export PKG_CONFIG_PATH="/home/arob/catkin_ws/devel/.private/hector_quadrotor_model/lib/pkgconfig:$PKG_CONFIG_PATH"
 export PWD='/home/arob/catkin_ws/build/hector_quadrotor_model'
 export ROSLISP_PACKAGE_DIRECTORIES="/home/arob/catkin_ws/devel/.private/hector_quadrotor_model/share/common-lisp:$ROSLISP_PACKAGE_DIRECTORIES"
 export ROS_PACKAGE_PATH="/home/arob/catkin_ws/src/hector_quadrotor_noetic/hector_quadrotor/hector_quadrotor_model:$ROS_PACKAGE_PATH"

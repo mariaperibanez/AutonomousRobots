@@ -360,6 +360,10 @@ mav_trajectory_generation_ros/ros_visualization.h
 lab3_drones/drone_race.hpp
 /home/arob/catkin_ws/src/p00_arob_lab3_drones/src/lab3_drones/drone_race.hpp
 
+/home/arob/catkin_ws/src/p00_arob_lab3_drones/src/drone_race_node.cpp
+lab3_drones/drone_race.hpp
+/home/arob/catkin_ws/src/p00_arob_lab3_drones/src/lab3_drones/drone_race.hpp
+
 /opt/ros/noetic/include/geometry_msgs/Point.h
 string
 -

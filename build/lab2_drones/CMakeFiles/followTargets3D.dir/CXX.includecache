@@ -34,6 +34,10 @@ tf/transform_broadcaster.h
 lab2_drones/follow_targets_3d.hpp
 /home/arob/catkin_ws/src/p03_arob_lab2_drones/src/lab2_drones/follow_targets_3d.hpp
 
+/home/arob/catkin_ws/src/p03_arob_lab2_drones/src/follow_targets_3d_node.cpp
+lab2_drones/follow_targets_3d.hpp
+/home/arob/catkin_ws/src/p03_arob_lab2_drones/src/lab2_drones/follow_targets_3d.hpp
+
 /opt/ros/noetic/include/geometry_msgs/Point.h
 string
 -

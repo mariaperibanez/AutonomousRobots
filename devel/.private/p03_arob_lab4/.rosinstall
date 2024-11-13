@@ -1,0 +1,2 @@
+- setup-file:
+    local-name: /home/arob/catkin_ws/devel/.private/p03_arob_lab4/setup.sh

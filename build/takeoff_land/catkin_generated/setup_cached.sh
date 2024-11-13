@@ -8,6 +8,8 @@
 
 # modified environment variables
 export CMAKE_PREFIX_PATH="/home/arob/catkin_ws/devel/.private/takeoff_land:$CMAKE_PREFIX_PATH"
+export LD_LIBRARY_PATH="/home/arob/catkin_ws/devel/.private/takeoff_land/lib:$LD_LIBRARY_PATH"
+export PKG_CONFIG_PATH="/home/arob/catkin_ws/devel/.private/takeoff_land/lib/pkgconfig:$PKG_CONFIG_PATH"
 export PWD='/home/arob/catkin_ws/build/takeoff_land'
 export ROSLISP_PACKAGE_DIRECTORIES="/home/arob/catkin_ws/devel/.private/takeoff_land/share/common-lisp:$ROSLISP_PACKAGE_DIRECTORIES"
 export ROS_PACKAGE_PATH="/home/arob/catkin_ws/src/hector_quadrotor_noetic/takeoff_land:$ROS_PACKAGE_PATH"

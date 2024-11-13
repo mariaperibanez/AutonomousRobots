@@ -9,6 +9,7 @@
 # modified environment variables
 export CMAKE_PREFIX_PATH="/home/arob/catkin_ws/devel/.private/unique_id:$CMAKE_PREFIX_PATH"
 export LD_LIBRARY_PATH="/home/arob/catkin_ws/devel/.private/unique_id/lib:$LD_LIBRARY_PATH"
+export PKG_CONFIG_PATH="/home/arob/catkin_ws/devel/.private/unique_id/lib/pkgconfig:$PKG_CONFIG_PATH"
 export PWD='/home/arob/catkin_ws/build/unique_id'
 export PYTHONPATH="/home/arob/catkin_ws/devel/.private/unique_id/lib/python3/dist-packages:$PYTHONPATH"
 export ROSLISP_PACKAGE_DIRECTORIES="/home/arob/catkin_ws/devel/.private/unique_id/share/common-lisp:$ROSLISP_PACKAGE_DIRECTORIES"

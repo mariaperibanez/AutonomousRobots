@@ -1,0 +1,8 @@
+prefix=/home/arob/catkin_ws/devel/.private/p03_arob_lab4
+
+Name: p03_arob_lab4
+Description: Description of p03_arob_lab4
+Version: 0.0.0
+Cflags: 
+Libs: -L${prefix}/lib 
+Requires: 

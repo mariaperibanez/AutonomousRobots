@@ -75,13 +75,13 @@ CMakeFiles/mav_planning_msgs_generate_messages_cpp: /home/arob/catkin_ws/devel/.
 
 /home/arob/catkin_ws/devel/.private/mav_planning_msgs/include/mav_planning_msgs/PointCloudWithPose.h: /opt/ros/noetic/lib/gencpp/gen_cpp.py
 /home/arob/catkin_ws/devel/.private/mav_planning_msgs/include/mav_planning_msgs/PointCloudWithPose.h: /home/arob/catkin_ws/src/mav_comm/mav_planning_msgs/msg/PointCloudWithPose.msg
-/home/arob/catkin_ws/devel/.private/mav_planning_msgs/include/mav_planning_msgs/PointCloudWithPose.h: /opt/ros/noetic/share/geometry_msgs/msg/Quaternion.msg
 /home/arob/catkin_ws/devel/.private/mav_planning_msgs/include/mav_planning_msgs/PointCloudWithPose.h: /opt/ros/noetic/share/sensor_msgs/msg/PointCloud2.msg
-/home/arob/catkin_ws/devel/.private/mav_planning_msgs/include/mav_planning_msgs/PointCloudWithPose.h: /opt/ros/noetic/share/geometry_msgs/msg/TransformStamped.msg
-/home/arob/catkin_ws/devel/.private/mav_planning_msgs/include/mav_planning_msgs/PointCloudWithPose.h: /opt/ros/noetic/share/geometry_msgs/msg/Vector3.msg
+/home/arob/catkin_ws/devel/.private/mav_planning_msgs/include/mav_planning_msgs/PointCloudWithPose.h: /opt/ros/noetic/share/geometry_msgs/msg/Quaternion.msg
 /home/arob/catkin_ws/devel/.private/mav_planning_msgs/include/mav_planning_msgs/PointCloudWithPose.h: /opt/ros/noetic/share/sensor_msgs/msg/PointField.msg
-/home/arob/catkin_ws/devel/.private/mav_planning_msgs/include/mav_planning_msgs/PointCloudWithPose.h: /opt/ros/noetic/share/geometry_msgs/msg/Transform.msg
+/home/arob/catkin_ws/devel/.private/mav_planning_msgs/include/mav_planning_msgs/PointCloudWithPose.h: /opt/ros/noetic/share/geometry_msgs/msg/TransformStamped.msg
 /home/arob/catkin_ws/devel/.private/mav_planning_msgs/include/mav_planning_msgs/PointCloudWithPose.h: /opt/ros/noetic/share/std_msgs/msg/Header.msg
+/home/arob/catkin_ws/devel/.private/mav_planning_msgs/include/mav_planning_msgs/PointCloudWithPose.h: /opt/ros/noetic/share/geometry_msgs/msg/Transform.msg
+/home/arob/catkin_ws/devel/.private/mav_planning_msgs/include/mav_planning_msgs/PointCloudWithPose.h: /opt/ros/noetic/share/geometry_msgs/msg/Vector3.msg
 /home/arob/catkin_ws/devel/.private/mav_planning_msgs/include/mav_planning_msgs/PointCloudWithPose.h: /opt/ros/noetic/share/gencpp/msg.h.template
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/arob/catkin_ws/build/mav_planning_msgs/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Generating C++ code from mav_planning_msgs/PointCloudWithPose.msg"
 	cd /home/arob/catkin_ws/src/mav_comm/mav_planning_msgs && /home/arob/catkin_ws/build/mav_planning_msgs/catkin_generated/env_cached.sh /usr/bin/python3 /opt/ros/noetic/share/gencpp/cmake/../../../lib/gencpp/gen_cpp.py /home/arob/catkin_ws/src/mav_comm/mav_planning_msgs/msg/PointCloudWithPose.msg -Imav_planning_msgs:/home/arob/catkin_ws/src/mav_comm/mav_planning_msgs/msg -Igeometry_msgs:/opt/ros/noetic/share/geometry_msgs/cmake/../msg -Isensor_msgs:/opt/ros/noetic/share/sensor_msgs/cmake/../msg -Istd_msgs:/opt/ros/noetic/share/std_msgs/cmake/../msg -Imav_msgs:/home/arob/catkin_ws/src/mav_comm/mav_msgs/msg -Itrajectory_msgs:/opt/ros/noetic/share/trajectory_msgs/cmake/../msg -Inav_msgs:/opt/ros/noetic/share/nav_msgs/cmake/../msg -Iactionlib_msgs:/opt/ros/noetic/share/actionlib_msgs/cmake/../msg -p mav_planning_msgs -o /home/arob/catkin_ws/devel/.private/mav_planning_msgs/include/mav_planning_msgs -e /opt/ros/noetic/share/gencpp/cmake/..
@@ -95,8 +95,8 @@ CMakeFiles/mav_planning_msgs_generate_messages_cpp: /home/arob/catkin_ws/devel/.
 
 /home/arob/catkin_ws/devel/.private/mav_planning_msgs/include/mav_planning_msgs/PolygonWithHoles.h: /opt/ros/noetic/lib/gencpp/gen_cpp.py
 /home/arob/catkin_ws/devel/.private/mav_planning_msgs/include/mav_planning_msgs/PolygonWithHoles.h: /home/arob/catkin_ws/src/mav_comm/mav_planning_msgs/msg/PolygonWithHoles.msg
-/home/arob/catkin_ws/devel/.private/mav_planning_msgs/include/mav_planning_msgs/PolygonWithHoles.h: /home/arob/catkin_ws/src/mav_comm/mav_planning_msgs/msg/Point2D.msg
 /home/arob/catkin_ws/devel/.private/mav_planning_msgs/include/mav_planning_msgs/PolygonWithHoles.h: /home/arob/catkin_ws/src/mav_comm/mav_planning_msgs/msg/Polygon2D.msg
+/home/arob/catkin_ws/devel/.private/mav_planning_msgs/include/mav_planning_msgs/PolygonWithHoles.h: /home/arob/catkin_ws/src/mav_comm/mav_planning_msgs/msg/Point2D.msg
 /home/arob/catkin_ws/devel/.private/mav_planning_msgs/include/mav_planning_msgs/PolygonWithHoles.h: /opt/ros/noetic/share/gencpp/msg.h.template
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/arob/catkin_ws/build/mav_planning_msgs/CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Generating C++ code from mav_planning_msgs/PolygonWithHoles.msg"
 	cd /home/arob/catkin_ws/src/mav_comm/mav_planning_msgs && /home/arob/catkin_ws/build/mav_planning_msgs/catkin_generated/env_cached.sh /usr/bin/python3 /opt/ros/noetic/share/gencpp/cmake/../../../lib/gencpp/gen_cpp.py /home/arob/catkin_ws/src/mav_comm/mav_planning_msgs/msg/PolygonWithHoles.msg -Imav_planning_msgs:/home/arob/catkin_ws/src/mav_comm/mav_planning_msgs/msg -Igeometry_msgs:/opt/ros/noetic/share/geometry_msgs/cmake/../msg -Isensor_msgs:/opt/ros/noetic/share/sensor_msgs/cmake/../msg -Istd_msgs:/opt/ros/noetic/share/std_msgs/cmake/../msg -Imav_msgs:/home/arob/catkin_ws/src/mav_comm/mav_msgs/msg -Itrajectory_msgs:/opt/ros/noetic/share/trajectory_msgs/cmake/../msg -Inav_msgs:/opt/ros/noetic/share/nav_msgs/cmake/../msg -Iactionlib_msgs:/opt/ros/noetic/share/actionlib_msgs/cmake/../msg -p mav_planning_msgs -o /home/arob/catkin_ws/devel/.private/mav_planning_msgs/include/mav_planning_msgs -e /opt/ros/noetic/share/gencpp/cmake/..
@@ -104,8 +104,8 @@ CMakeFiles/mav_planning_msgs_generate_messages_cpp: /home/arob/catkin_ws/devel/.
 /home/arob/catkin_ws/devel/.private/mav_planning_msgs/include/mav_planning_msgs/PolygonWithHolesStamped.h: /opt/ros/noetic/lib/gencpp/gen_cpp.py
 /home/arob/catkin_ws/devel/.private/mav_planning_msgs/include/mav_planning_msgs/PolygonWithHolesStamped.h: /home/arob/catkin_ws/src/mav_comm/mav_planning_msgs/msg/PolygonWithHolesStamped.msg
 /home/arob/catkin_ws/devel/.private/mav_planning_msgs/include/mav_planning_msgs/PolygonWithHolesStamped.h: /home/arob/catkin_ws/src/mav_comm/mav_planning_msgs/msg/PolygonWithHoles.msg
-/home/arob/catkin_ws/devel/.private/mav_planning_msgs/include/mav_planning_msgs/PolygonWithHolesStamped.h: /home/arob/catkin_ws/src/mav_comm/mav_planning_msgs/msg/Point2D.msg
 /home/arob/catkin_ws/devel/.private/mav_planning_msgs/include/mav_planning_msgs/PolygonWithHolesStamped.h: /home/arob/catkin_ws/src/mav_comm/mav_planning_msgs/msg/Polygon2D.msg
+/home/arob/catkin_ws/devel/.private/mav_planning_msgs/include/mav_planning_msgs/PolygonWithHolesStamped.h: /home/arob/catkin_ws/src/mav_comm/mav_planning_msgs/msg/Point2D.msg
 /home/arob/catkin_ws/devel/.private/mav_planning_msgs/include/mav_planning_msgs/PolygonWithHolesStamped.h: /opt/ros/noetic/share/std_msgs/msg/Header.msg
 /home/arob/catkin_ws/devel/.private/mav_planning_msgs/include/mav_planning_msgs/PolygonWithHolesStamped.h: /opt/ros/noetic/share/gencpp/msg.h.template
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/arob/catkin_ws/build/mav_planning_msgs/CMakeFiles --progress-num=$(CMAKE_PROGRESS_5) "Generating C++ code from mav_planning_msgs/PolygonWithHolesStamped.msg"
@@ -120,8 +120,8 @@ CMakeFiles/mav_planning_msgs_generate_messages_cpp: /home/arob/catkin_ws/devel/.
 
 /home/arob/catkin_ws/devel/.private/mav_planning_msgs/include/mav_planning_msgs/PolynomialTrajectory.h: /opt/ros/noetic/lib/gencpp/gen_cpp.py
 /home/arob/catkin_ws/devel/.private/mav_planning_msgs/include/mav_planning_msgs/PolynomialTrajectory.h: /home/arob/catkin_ws/src/mav_comm/mav_planning_msgs/msg/PolynomialTrajectory.msg
-/home/arob/catkin_ws/devel/.private/mav_planning_msgs/include/mav_planning_msgs/PolynomialTrajectory.h: /opt/ros/noetic/share/std_msgs/msg/Header.msg
 /home/arob/catkin_ws/devel/.private/mav_planning_msgs/include/mav_planning_msgs/PolynomialTrajectory.h: /home/arob/catkin_ws/src/mav_comm/mav_planning_msgs/msg/PolynomialSegment.msg
+/home/arob/catkin_ws/devel/.private/mav_planning_msgs/include/mav_planning_msgs/PolynomialTrajectory.h: /opt/ros/noetic/share/std_msgs/msg/Header.msg
 /home/arob/catkin_ws/devel/.private/mav_planning_msgs/include/mav_planning_msgs/PolynomialTrajectory.h: /opt/ros/noetic/share/gencpp/msg.h.template
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/arob/catkin_ws/build/mav_planning_msgs/CMakeFiles --progress-num=$(CMAKE_PROGRESS_7) "Generating C++ code from mav_planning_msgs/PolynomialTrajectory.msg"
 	cd /home/arob/catkin_ws/src/mav_comm/mav_planning_msgs && /home/arob/catkin_ws/build/mav_planning_msgs/catkin_generated/env_cached.sh /usr/bin/python3 /opt/ros/noetic/share/gencpp/cmake/../../../lib/gencpp/gen_cpp.py /home/arob/catkin_ws/src/mav_comm/mav_planning_msgs/msg/PolynomialTrajectory.msg -Imav_planning_msgs:/home/arob/catkin_ws/src/mav_comm/mav_planning_msgs/msg -Igeometry_msgs:/opt/ros/noetic/share/geometry_msgs/cmake/../msg -Isensor_msgs:/opt/ros/noetic/share/sensor_msgs/cmake/../msg -Istd_msgs:/opt/ros/noetic/share/std_msgs/cmake/../msg -Imav_msgs:/home/arob/catkin_ws/src/mav_comm/mav_msgs/msg -Itrajectory_msgs:/opt/ros/noetic/share/trajectory_msgs/cmake/../msg -Inav_msgs:/opt/ros/noetic/share/nav_msgs/cmake/../msg -Iactionlib_msgs:/opt/ros/noetic/share/actionlib_msgs/cmake/../msg -p mav_planning_msgs -o /home/arob/catkin_ws/devel/.private/mav_planning_msgs/include/mav_planning_msgs -e /opt/ros/noetic/share/gencpp/cmake/..
@@ -143,20 +143,20 @@ CMakeFiles/mav_planning_msgs_generate_messages_cpp: /home/arob/catkin_ws/devel/.
 
 /home/arob/catkin_ws/devel/.private/mav_planning_msgs/include/mav_planning_msgs/PlannerService.h: /opt/ros/noetic/lib/gencpp/gen_cpp.py
 /home/arob/catkin_ws/devel/.private/mav_planning_msgs/include/mav_planning_msgs/PlannerService.h: /home/arob/catkin_ws/src/mav_comm/mav_planning_msgs/srv/PlannerService.srv
-/home/arob/catkin_ws/devel/.private/mav_planning_msgs/include/mav_planning_msgs/PlannerService.h: /opt/ros/noetic/share/geometry_msgs/msg/Quaternion.msg
-/home/arob/catkin_ws/devel/.private/mav_planning_msgs/include/mav_planning_msgs/PlannerService.h: /opt/ros/noetic/share/geometry_msgs/msg/PoseStamped.msg
-/home/arob/catkin_ws/devel/.private/mav_planning_msgs/include/mav_planning_msgs/PlannerService.h: /opt/ros/noetic/share/trajectory_msgs/msg/MultiDOFJointTrajectoryPoint.msg
-/home/arob/catkin_ws/devel/.private/mav_planning_msgs/include/mav_planning_msgs/PlannerService.h: /opt/ros/noetic/share/geometry_msgs/msg/Pose.msg
-/home/arob/catkin_ws/devel/.private/mav_planning_msgs/include/mav_planning_msgs/PlannerService.h: /home/arob/catkin_ws/src/mav_comm/mav_planning_msgs/msg/PolynomialTrajectory4D.msg
-/home/arob/catkin_ws/devel/.private/mav_planning_msgs/include/mav_planning_msgs/PlannerService.h: /home/arob/catkin_ws/src/mav_comm/mav_planning_msgs/msg/PolynomialSegment.msg
-/home/arob/catkin_ws/devel/.private/mav_planning_msgs/include/mav_planning_msgs/PlannerService.h: /home/arob/catkin_ws/src/mav_comm/mav_planning_msgs/msg/PolynomialSegment4D.msg
-/home/arob/catkin_ws/devel/.private/mav_planning_msgs/include/mav_planning_msgs/PlannerService.h: /home/arob/catkin_ws/src/mav_comm/mav_planning_msgs/msg/PolynomialTrajectory.msg
-/home/arob/catkin_ws/devel/.private/mav_planning_msgs/include/mav_planning_msgs/PlannerService.h: /opt/ros/noetic/share/geometry_msgs/msg/Point.msg
-/home/arob/catkin_ws/devel/.private/mav_planning_msgs/include/mav_planning_msgs/PlannerService.h: /opt/ros/noetic/share/geometry_msgs/msg/Vector3.msg
-/home/arob/catkin_ws/devel/.private/mav_planning_msgs/include/mav_planning_msgs/PlannerService.h: /opt/ros/noetic/share/geometry_msgs/msg/Transform.msg
-/home/arob/catkin_ws/devel/.private/mav_planning_msgs/include/mav_planning_msgs/PlannerService.h: /opt/ros/noetic/share/std_msgs/msg/Header.msg
 /home/arob/catkin_ws/devel/.private/mav_planning_msgs/include/mav_planning_msgs/PlannerService.h: /opt/ros/noetic/share/trajectory_msgs/msg/MultiDOFJointTrajectory.msg
 /home/arob/catkin_ws/devel/.private/mav_planning_msgs/include/mav_planning_msgs/PlannerService.h: /opt/ros/noetic/share/geometry_msgs/msg/Twist.msg
+/home/arob/catkin_ws/devel/.private/mav_planning_msgs/include/mav_planning_msgs/PlannerService.h: /opt/ros/noetic/share/geometry_msgs/msg/Quaternion.msg
+/home/arob/catkin_ws/devel/.private/mav_planning_msgs/include/mav_planning_msgs/PlannerService.h: /opt/ros/noetic/share/trajectory_msgs/msg/MultiDOFJointTrajectoryPoint.msg
+/home/arob/catkin_ws/devel/.private/mav_planning_msgs/include/mav_planning_msgs/PlannerService.h: /home/arob/catkin_ws/src/mav_comm/mav_planning_msgs/msg/PolynomialTrajectory.msg
+/home/arob/catkin_ws/devel/.private/mav_planning_msgs/include/mav_planning_msgs/PlannerService.h: /opt/ros/noetic/share/geometry_msgs/msg/PoseStamped.msg
+/home/arob/catkin_ws/devel/.private/mav_planning_msgs/include/mav_planning_msgs/PlannerService.h: /home/arob/catkin_ws/src/mav_comm/mav_planning_msgs/msg/PolynomialSegment.msg
+/home/arob/catkin_ws/devel/.private/mav_planning_msgs/include/mav_planning_msgs/PlannerService.h: /opt/ros/noetic/share/geometry_msgs/msg/Pose.msg
+/home/arob/catkin_ws/devel/.private/mav_planning_msgs/include/mav_planning_msgs/PlannerService.h: /opt/ros/noetic/share/std_msgs/msg/Header.msg
+/home/arob/catkin_ws/devel/.private/mav_planning_msgs/include/mav_planning_msgs/PlannerService.h: /opt/ros/noetic/share/geometry_msgs/msg/Transform.msg
+/home/arob/catkin_ws/devel/.private/mav_planning_msgs/include/mav_planning_msgs/PlannerService.h: /home/arob/catkin_ws/src/mav_comm/mav_planning_msgs/msg/PolynomialSegment4D.msg
+/home/arob/catkin_ws/devel/.private/mav_planning_msgs/include/mav_planning_msgs/PlannerService.h: /opt/ros/noetic/share/geometry_msgs/msg/Point.msg
+/home/arob/catkin_ws/devel/.private/mav_planning_msgs/include/mav_planning_msgs/PlannerService.h: /opt/ros/noetic/share/geometry_msgs/msg/Vector3.msg
+/home/arob/catkin_ws/devel/.private/mav_planning_msgs/include/mav_planning_msgs/PlannerService.h: /home/arob/catkin_ws/src/mav_comm/mav_planning_msgs/msg/PolynomialTrajectory4D.msg
 /home/arob/catkin_ws/devel/.private/mav_planning_msgs/include/mav_planning_msgs/PlannerService.h: /opt/ros/noetic/share/gencpp/msg.h.template
 /home/arob/catkin_ws/devel/.private/mav_planning_msgs/include/mav_planning_msgs/PlannerService.h: /opt/ros/noetic/share/gencpp/srv.h.template
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/arob/catkin_ws/build/mav_planning_msgs/CMakeFiles --progress-num=$(CMAKE_PROGRESS_10) "Generating C++ code from mav_planning_msgs/PlannerService.srv"
@@ -164,10 +164,10 @@ CMakeFiles/mav_planning_msgs_generate_messages_cpp: /home/arob/catkin_ws/devel/.
 
 /home/arob/catkin_ws/devel/.private/mav_planning_msgs/include/mav_planning_msgs/PolygonService.h: /opt/ros/noetic/lib/gencpp/gen_cpp.py
 /home/arob/catkin_ws/devel/.private/mav_planning_msgs/include/mav_planning_msgs/PolygonService.h: /home/arob/catkin_ws/src/mav_comm/mav_planning_msgs/srv/PolygonService.srv
-/home/arob/catkin_ws/devel/.private/mav_planning_msgs/include/mav_planning_msgs/PolygonService.h: /home/arob/catkin_ws/src/mav_comm/mav_planning_msgs/msg/PolygonWithHolesStamped.msg
-/home/arob/catkin_ws/devel/.private/mav_planning_msgs/include/mav_planning_msgs/PolygonService.h: /home/arob/catkin_ws/src/mav_comm/mav_planning_msgs/msg/PolygonWithHoles.msg
 /home/arob/catkin_ws/devel/.private/mav_planning_msgs/include/mav_planning_msgs/PolygonService.h: /home/arob/catkin_ws/src/mav_comm/mav_planning_msgs/msg/Polygon2D.msg
 /home/arob/catkin_ws/devel/.private/mav_planning_msgs/include/mav_planning_msgs/PolygonService.h: /home/arob/catkin_ws/src/mav_comm/mav_planning_msgs/msg/Point2D.msg
+/home/arob/catkin_ws/devel/.private/mav_planning_msgs/include/mav_planning_msgs/PolygonService.h: /home/arob/catkin_ws/src/mav_comm/mav_planning_msgs/msg/PolygonWithHolesStamped.msg
+/home/arob/catkin_ws/devel/.private/mav_planning_msgs/include/mav_planning_msgs/PolygonService.h: /home/arob/catkin_ws/src/mav_comm/mav_planning_msgs/msg/PolygonWithHoles.msg
 /home/arob/catkin_ws/devel/.private/mav_planning_msgs/include/mav_planning_msgs/PolygonService.h: /opt/ros/noetic/share/std_msgs/msg/Header.msg
 /home/arob/catkin_ws/devel/.private/mav_planning_msgs/include/mav_planning_msgs/PolygonService.h: /opt/ros/noetic/share/gencpp/msg.h.template
 /home/arob/catkin_ws/devel/.private/mav_planning_msgs/include/mav_planning_msgs/PolygonService.h: /opt/ros/noetic/share/gencpp/srv.h.template

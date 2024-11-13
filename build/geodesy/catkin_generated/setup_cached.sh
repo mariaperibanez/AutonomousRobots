@@ -9,6 +9,7 @@
 # modified environment variables
 export CMAKE_PREFIX_PATH="/home/arob/catkin_ws/devel/.private/geodesy:$CMAKE_PREFIX_PATH"
 export LD_LIBRARY_PATH="/home/arob/catkin_ws/devel/.private/geodesy/lib:$LD_LIBRARY_PATH"
+export PKG_CONFIG_PATH="/home/arob/catkin_ws/devel/.private/geodesy/lib/pkgconfig:$PKG_CONFIG_PATH"
 export PWD='/home/arob/catkin_ws/build/geodesy'
 export PYTHONPATH="/home/arob/catkin_ws/devel/.private/geodesy/lib/python3/dist-packages:$PYTHONPATH"
 export ROSLISP_PACKAGE_DIRECTORIES="/home/arob/catkin_ws/devel/.private/geodesy/share/common-lisp:$ROSLISP_PACKAGE_DIRECTORIES"
