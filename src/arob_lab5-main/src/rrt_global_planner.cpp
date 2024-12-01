@@ -102,6 +102,7 @@ bool RRTPlanner::computeRRT(const std::vector<int> start, const std::vector<int>
                             std::vector<std::vector<int>>& sol){
     bool finished = false;
     int iter = 0;
+    int max_iter = 1000;
 
     //Initialize random number generator
     srand(time(NULL));
@@ -116,8 +117,8 @@ bool RRTPlanner::computeRRT(const std::vector<int> start, const std::vector<int>
         iter++;
 
         //Generate a random point inside the map
-        float x_rand = srand() % (costmap_->getSizeInCellsX() + 1); 
-        float y_rand = srand() % (costmap_->getSizeInCellsY() + 1); 
+        unsigned int x_rand = rand() % (costmap_->getSizeInCellsX() + 1); 
+        unsigned int y_rand = rand() % (costmap_->getSizeInCellsY() + 1); 
         
         // if punto del arbol y el goal estan sin obstaculos, acabar y devolver el true
         if (!(costmap_->getCost(x_rand, y_rand) == costmap_2d::FREE_SPACE)){
@@ -132,12 +133,15 @@ bool RRTPlanner::computeRRT(const std::vector<int> start, const std::vector<int>
         unsigned int x0 = nearest->getNode()[0];
         unsigned int y0 = nearest->getNode()[1];
         // if maxdist actualizamos a la distancia maxima TODO: si nos returnea False, podemos hacer esto antes de la comprobacion de FREE_SPACE 
-         double dist = distance(x0, y0, x_rand, y_rand);
+        double dist = distance(x0, y0, x_rand, y_rand);
         
         if ( dist > max_dist_){
-            std::vector <double> direction{(double)(x0-x_rand)/dist, (double)(y1-y_rand)/dist}
-            x_rand = direction[0] * max_dist_;
-            y_rand = direction[1] * max_dist_;
+            //std::vector <float> direction{(float)(x0-x_rand)/dist, (float)(y1-y_rand)/dist};
+            //x_rand = direction[0] * max_dist_;
+            //y_rand = direction[1] * max_dist_;
+            double scale = max_dist_/dist;
+            x_rand = x0 + scale * (x_rand - x0);
+            y_rand = y0 + scale * (y_rand - y0);
         }
 
         // Verificar si el camino está libre de obstáculos
@@ -146,14 +150,14 @@ bool RRTPlanner::computeRRT(const std::vector<int> start, const std::vector<int>
         }
 
         // Crear un nuevo nodo y agregarlo al árbol
-        TreeNode *new_node = new TreeNode({static_cast<float>(x_rand), static_cast<float>(y_rand)});
+        TreeNode *new_final_node = new TreeNode({static_cast<int>(x_rand), static_cast<int>(y_rand)});
         new_node->setParent(nearest);
-        tree.push_back(new_node);
+        tree.push_back(new_final_node);
         
         // Comprobar si se alcanza la meta
         if (distance(x_rand, y_rand, goal[0], goal[1]) <= resolution_) {
             // Reconstruir el camino desde la meta al inicio
-            TreeNode *current = new_node;
+            TreeNode *current = new_final_node;
             while (current != nullptr) {
                 sol.push_back(current->getNode());
                 current = current->getParent();

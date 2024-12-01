@@ -1,0 +1,4 @@
+Symlinking /home/arob/catkin_ws/devel/lib/librrt_global_planner_lib.so
+Symlinking /home/arob/catkin_ws/devel/lib/pkgconfig/arob_lab5.pc
+Symlinking /home/arob/catkin_ws/devel/share/arob_lab5/cmake/arob_lab5Config.cmake
+Symlinking /home/arob/catkin_ws/devel/share/arob_lab5/cmake/arob_lab5Config-version.cmake

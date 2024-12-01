@@ -1,0 +1,1 @@
+/home/arob/catkin_ws/devel/.private/arob_lab5/share/arob_lab5/cmake/arob_lab5Config-version.cmake

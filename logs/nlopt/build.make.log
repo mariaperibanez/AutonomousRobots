@@ -1,5 +1,2 @@
 [ 80%] Built target nlopt_src
-[35m[1mScanning dependencies of target nlopt_wrap[0m
-[ 90%] [32mBuilding CXX object CMakeFiles/nlopt_wrap.dir/src/wrap_lib.cc.o[0m
-[100%] [32m[1mLinking CXX shared library /home/arob/catkin_ws/devel/.private/nlopt/lib/libnlopt_wrap.so[0m
 [100%] Built target nlopt_wrap
