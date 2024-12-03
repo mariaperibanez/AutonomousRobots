@@ -16,7 +16,7 @@
 	<rosparam file="$(find arob_lab5)/config/move_base/costmaps/costmap_common_params.yaml" command="load" ns="global_costmap" />
 	<rosparam file="$(find arob_lab5)/config/move_base/costmaps/costmap_common_params.yaml" command="load" ns="local_costmap" />
 	<rosparam file="$(find arob_lab5)/config/move_base/costmaps/costmap_local_params.yaml"  command="load" />
-	<rosparam file="$(find arob_lab5)/config/move_base/costmaps/costmap_global_params.yaml" command="load" />
+	<!-- <rosparam file="$(find arob_lab5)/config/move_base/costmaps/costmap_global_params.yaml" command="load" /> -->
 
 	<!-- Planners selection and configuration -->
 	<rosparam file="$(find arob_lab5)/config/move_base/planners_selection.yaml" command="load" />
