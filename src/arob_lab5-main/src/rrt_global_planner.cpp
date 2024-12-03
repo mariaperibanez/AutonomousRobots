@@ -28,7 +28,7 @@ void RRTPlanner::initialize(std::string name, costmap_2d::Costmap2DROS* costmap_
         ros::NodeHandle nh_local("~/local_costmap/");
         ros::NodeHandle nh_global("~/global_costmap/");
 
-	ros::Publisher vis_pub = node_handle.advertise<visualization_msgs::Marker>("visualization_marker", 0);
+	    //ros::Publisher vis_pub = node_handle.advertise<visualization_msgs::Marker>("visualization_marker", 0);
 
 
         nh.param("maxsamples", max_samples_, 0.0);
@@ -159,8 +159,8 @@ bool RRTPlanner::computeRRT(const std::vector<int> start, const std::vector<int>
         TreeNode *new_final_node = new TreeNode({static_cast<int>(x_rand), static_cast<int>(y_rand)});
         new_node->setParent(nearest);
         tree.push_back(new_final_node);
-        publishNodeMarker(new_final_node->getNode(), tree.size());
-	publishEdgeMarker(nearest->getNode(), new_final_node->getNode(), tree.size());
+        //publishNodeMarker(new_final_node->getNode(), tree.size());
+	    //publishEdgeMarker(nearest->getNode(), new_final_node->getNode(), tree.size());
 
         
         // Comprobar si se alcanza la meta
@@ -241,71 +241,6 @@ void RRTPlanner::getPlan(const std::vector<std::vector<int>> sol, std::vector<ge
 
     }
 }
-
-void RRTPlanner::publishNodeMarker(const std::vector<int>& point, int id) {
-    visualization_msgs::Marker marker;
-    marker.header.frame_id = "base_link";
-    marker.header.stamp = ros::Time();
-    marker.ns = "rrt_nodes";
-    marker.id = id; // ID único por nodo
-    marker.type = visualization_msgs::Marker::SPHERE;
-    marker.action = visualization_msgs::Marker::ADD;
-
-    marker.scale.x = 1; // Tamaño de la esfera
-    marker.scale.y = 0.1;
-    marker.scale.z = 0.1;
-
-    marker.color.r = 0.0; // Color verde
-    marker.color.g = 1.0;
-    marker.color.b = 0.0;
-    marker.color.a = 1.0;
-
-    // Convertir las coordenadas del mapa a coordenadas del mundo
-    double wx, wy;
-    costmap_->mapToWorld(point[0], point[1], wx, wy);
-    marker.pose.position.x = wx;
-    marker.pose.position.y = wy;
-    marker.pose.position.z = 0.0;
-
-    marker.pose.orientation.x = 0.0;
-    marker.pose.orientation.y = 0.0;
-    marker.pose.orientation.z = 0.0;
-    marker.pose.orientation.w = 1.0;
-
-    vis_pub.publish(marker);
-}
-
-void RRTPlanner::publishEdgeMarker(const std::vector<int>& start, const std::vector<int>& end, int id) {
-    visualization_msgs::Marker marker;
-    marker.header.frame_id = "base_link";
-    marker.header.stamp = ros::Time();
-    marker.ns = "rrt_edges";
-    marker.id = id; // ID único por rama
-    marker.type = visualization_msgs::Marker::LINE_STRIP;
-    marker.action = visualization_msgs::Marker::ADD;
-
-    marker.scale.x = 0.05; // Grosor de la línea
-
-    marker.color.r = 1.0; // Color rojo
-    marker.color.g = 0.0;
-    marker.color.b = 0.0;
-    marker.color.a = 1.0;
-
-    // Convertir los puntos a coordenadas del mundo
-    geometry_msgs::Point p1, p2;
-    double wx1, wy1, wx2, wy2;
-    costmap_->mapToWorld(start[0], start[1], wx1, wy1);
-    costmap_->mapToWorld(end[0], end[1], wx2, wy2);
-
-    p1.x = wx1; p1.y = wy1; p1.z = 0.0;
-    p2.x = wx2; p2.y = wy2; p2.z = 0.0;
-
-    marker.points.push_back(p1);
-    marker.points.push_back(p2);
-
-    marker_pub_.publish(marker);
-}
-
 
 
 };

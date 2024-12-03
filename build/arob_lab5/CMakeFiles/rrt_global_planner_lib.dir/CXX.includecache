@@ -37,6 +37,10 @@ pluginlib/class_list_macros.h
 -
 AROB_lab5/rrt_global_planner.h
 /home/arob/catkin_ws/src/arob_lab5-main/src/AROB_lab5/rrt_global_planner.h
+visualization_msgs/Marker.h
+-
+visualization_msgs/MarkerArray.h
+-
 
 /opt/ros/noetic/include/class_loader/class_loader.hpp
 boost/bind.hpp
@@ -1692,6 +1696,24 @@ std_msgs/ColorRGBA.h
 geometry_msgs/Point.h
 -
 std_msgs/ColorRGBA.h
+-
+
+/opt/ros/noetic/include/visualization_msgs/MarkerArray.h
+string
+-
+vector
+-
+map
+-
+ros/types.h
+-
+ros/serialization.h
+-
+ros/builtin_message_traits.h
+-
+ros/message_operations.h
+-
+visualization_msgs/Marker.h
 -
 
 /opt/ros/noetic/include/xmlrpcpp/XmlRpcDecl.h

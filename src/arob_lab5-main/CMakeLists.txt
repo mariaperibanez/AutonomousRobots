@@ -53,7 +53,7 @@ include_directories(
 	${EIGEN3_INCLUDE_DIRS}
 )
 
-add_library(rrt_global_planner_lib src/rrt_global_planner.cpp src/TreeNode.cpp)
-target_link_libraries(rrt_global_planner_lib ${catkin_LIBRARIES})
+add_library(p03_rrt_global_planner_lib src/rrt_global_planner.cpp src/TreeNode.cpp)
+target_link_libraries(p03_rrt_global_planner_lib ${catkin_LIBRARIES})
 
 set(CMAKE_CXX_FLAGS "-std=c++14 ${CMAKE_CXX_FLAGS}")

@@ -1,0 +1,7 @@
+<library path="lib/libp03_rrt_global_planner_lib">
+	<class name="p03_rrt_global_planner/RRTPlanner"
+		type="p03_rrt_global_planner::RRTPlanner"
+		base_class_type="nav_core::GlobalPlanner">
+		<description>This is a RRT global planner plugin.</description>
+    </class>
+</library>

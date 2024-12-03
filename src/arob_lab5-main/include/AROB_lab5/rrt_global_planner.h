@@ -46,6 +46,8 @@ private:
     bool computeRRT(const std::vector<int> start, const std::vector<int> goal, 
                             std::vector<std::vector<int>>& sol);
     void getPlan(const std::vector<std::vector<int>> sol, std::vector<geometry_msgs::PoseStamped>& plan);
+    void publishNodeMarker(const std::vector<int>& point, int id);
+    void publishEdgeMarker(const std::vector<int>& start, const std::vector<int>& end, int id);
 };
 
 };
