@@ -40,6 +40,7 @@ void RRTPlanner::initialize(std::string name, costmap_2d::Costmap2DROS* costmap_
         max_dist_ = (std::min(width, height)/3.0);  //or any other distance within local costmap
 
         nh_global.param("resolution", resolution_, 0.05);
+        
 
         // std::cout << "Parameters: " << max_samples_ << ", " << dist_th_ << ", " << visualize_markers_ << ", " << max_dist_ << std::endl;
         // std::cout << "Local costmap size: " << width << ", " << height << std::endl;
@@ -108,13 +109,14 @@ bool RRTPlanner::computeRRT(const std::vector<int> start, const std::vector<int>
                             std::vector<std::vector<int>>& sol){
     bool finished = false;
     int iter = 0;
-    int max_iter = 1000;
+    const int max_iter = 1000;
+    double treshold_ = 0.2;
 
     //Initialize random number generator
     srand(time(NULL));
         
     // Initialize the tree with the starting point in map coordinates
-    TreeNode *itr_node = new TreeNode(start); 
+    TreeNode* itr_node = new TreeNode(start); 
     std::vector<TreeNode*> tree;
     tree.push_back(itr_node);
 
@@ -123,15 +125,15 @@ bool RRTPlanner::computeRRT(const std::vector<int> start, const std::vector<int>
         iter++;
 
         //Generate a random point inside the map
-        unsigned int x_rand = rand() % (costmap_->getSizeInCellsX() + 1); 
-        unsigned int y_rand = rand() % (costmap_->getSizeInCellsY() + 1); 
+        unsigned int x_rand = int(double(rand())/double(RAND_MAX)) * costmap_->getSizeInCellsX(); 
+        unsigned int y_rand = int(double(rand())/double(RAND_MAX)) * costmap_->getSizeInCellsY(); 
         
         // if punto del arbol y el goal estan sin obstaculos, acabar y devolver el true
         if (!(costmap_->getCost(x_rand, y_rand) == costmap_2d::FREE_SPACE)){
             continue;
         }
 
-        std::vector <int> point{(int)x_rand, (int)y_rand};
+        std::vector<int> point = {static_cast<int>(x_rand), static_cast<int>(y_rand)};
         TreeNode *new_node = new TreeNode(point);
 
         //Find the nearest point in the tree
@@ -141,7 +143,7 @@ bool RRTPlanner::computeRRT(const std::vector<int> start, const std::vector<int>
         // if maxdist actualizamos a la distancia maxima TODO: si nos returnea False, podemos hacer esto antes de la comprobacion de FREE_SPACE 
         double dist = distance(x0, y0, x_rand, y_rand);
         
-        if ( dist > max_dist_){
+        if ( dist*resolution_ > max_dist_){
             //std::vector <float> direction{(float)(x0-x_rand)/dist, (float)(y1-y_rand)/dist};
             //x_rand = direction[0] * max_dist_;
             //y_rand = direction[1] * max_dist_;
@@ -157,20 +159,17 @@ bool RRTPlanner::computeRRT(const std::vector<int> start, const std::vector<int>
 
         // Crear un nuevo nodo y agregarlo al árbol
         TreeNode *new_final_node = new TreeNode({static_cast<int>(x_rand), static_cast<int>(y_rand)});
-        new_node->setParent(nearest);
+        nearest->appendChild(new_final_node);
         tree.push_back(new_final_node);
         //publishNodeMarker(new_final_node->getNode(), tree.size());
 	    //publishEdgeMarker(nearest->getNode(), new_final_node->getNode(), tree.size());
 
         
         // Comprobar si se alcanza la meta
-        if (distance(x_rand, y_rand, goal[0], goal[1]) <= resolution_) {
+        if ((distance(x_rand, y_rand, goal[0], goal[1])*resolution_ <= treshold_) && (obstacleFree(x_rand, y_rand, goal[0], goal[1]))) {
             // Reconstruir el camino desde la meta al inicio
-            TreeNode *current = new_final_node;
-            while (current != nullptr) {
-                sol.push_back(current->getNode());
-                current = current->getParent();
-            }
+            sol.push_back(new_final_node->getNode());
+            
             finished = true;
             break;
         }

@@ -1,0 +1,12 @@
+[35m[1mScanning dependencies of target rrt_global_planner_lib[0m
+[ 33%] [32mBuilding CXX object CMakeFiles/rrt_global_planner_lib.dir/src/rrt_global_planner.cpp.o[0m
+[01m[K/home/arob/catkin_ws/src/arob_lab5-main/src/rrt_global_planner.cpp:[m[K In member function ‘[01m[Kbool rrt_planner::RRTPlanner::computeRRT(std::vector<int>, std::vector<int>, std::vector<std::vector<int> >&)[m[K’:
+[01m[K/home/arob/catkin_ws/src/arob_lab5-main/src/rrt_global_planner.cpp:167:71:[m[K [01;31m[Kerror: [m[Ktoo few arguments to function ‘[01m[Kdouble rrt_planner::distance(unsigned int, unsigned int, unsigned int, unsigned int)[m[K’
+  167 |         if (distance((x_rand, y_rand, goal[0], goal[1]) <= resolution_[01;31m[K)[m[K && (obstacleFree(x_rand, y_rand, goal[0], goal[1]))) {
+      |                                                                       [01;31m[K^[m[K
+[01m[K/home/arob/catkin_ws/src/arob_lab5-main/src/rrt_global_planner.cpp:13:8:[m[K [01;36m[Knote: [m[Kdeclared here
+   13 | double [01;36m[Kdistance[m[K(const unsigned int x0, const unsigned int y0, const unsigned int x1, const unsigned int y1){
+      |        [01;36m[K^~~~~~~~[m[K
+make[2]: *** [CMakeFiles/rrt_global_planner_lib.dir/build.make:63: CMakeFiles/rrt_global_planner_lib.dir/src/rrt_global_planner.cpp.o] Error 1
+make[1]: *** [CMakeFiles/Makefile2:246: CMakeFiles/rrt_global_planner_lib.dir/all] Error 2
+make: *** [Makefile:141: all] Error 2
