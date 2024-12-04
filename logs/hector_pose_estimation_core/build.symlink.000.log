@@ -1,5 +1,0 @@
-Symlinking /home/arob/catkin_ws/devel/include/hector_pose_estimation/matrix_config.h
-Symlinking /home/arob/catkin_ws/devel/lib/libhector_pose_estimation.so
-Symlinking /home/arob/catkin_ws/devel/lib/pkgconfig/hector_pose_estimation_core.pc
-Symlinking /home/arob/catkin_ws/devel/share/hector_pose_estimation_core/cmake/hector_pose_estimation_coreConfig.cmake
-Symlinking /home/arob/catkin_ws/devel/share/hector_pose_estimation_core/cmake/hector_pose_estimation_coreConfig-version.cmake

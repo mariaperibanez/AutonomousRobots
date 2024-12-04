@@ -1,5 +1,0 @@
-Symlinking /home/arob/catkin_ws/devel/lib/pkgconfig/mav_trajectory_generation_example.pc
-Symlinking /home/arob/catkin_ws/devel/lib/mav_trajectory_generation_example/trajectory_generation_example
-Symlinking /home/arob/catkin_ws/devel/lib/mav_trajectory_generation_example/trajectory_generation_6dof_example
-Symlinking /home/arob/catkin_ws/devel/share/mav_trajectory_generation_example/cmake/mav_trajectory_generation_exampleConfig-version.cmake
-Symlinking /home/arob/catkin_ws/devel/share/mav_trajectory_generation_example/cmake/mav_trajectory_generation_exampleConfig.cmake

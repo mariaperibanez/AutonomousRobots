@@ -55,5 +55,6 @@ include_directories(
 
 add_library(rrt_global_planner_lib src/rrt_global_planner.cpp src/TreeNode.cpp)
 target_link_libraries(rrt_global_planner_lib ${catkin_LIBRARIES})
+install(FILES rrt_global_planner_plugin.xml DESTINATION ${CATKIN_PACKAGE_SHARE_DESTINATION})
 
 set(CMAKE_CXX_FLAGS "-std=c++14 ${CMAKE_CXX_FLAGS}")

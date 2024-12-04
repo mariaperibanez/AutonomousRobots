@@ -1,5 +1,0 @@
-Symlinking /home/arob/catkin_ws/devel/lib/libgeoconv.so
-Symlinking /home/arob/catkin_ws/devel/lib/pkgconfig/geodesy.pc
-Symlinking /home/arob/catkin_ws/devel/lib/python3/dist-packages/geodesy/__init__.py
-Symlinking /home/arob/catkin_ws/devel/share/geodesy/cmake/geodesyConfig.cmake
-Symlinking /home/arob/catkin_ws/devel/share/geodesy/cmake/geodesyConfig-version.cmake

@@ -143,6 +143,10 @@ if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_
   file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/arob_lab5" TYPE FILE FILES "/home/arob/catkin_ws/src/arob_lab5-main/package.xml")
 endif()
 
+if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_COMPONENT)
+  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/arob_lab5" TYPE FILE FILES "/home/arob/catkin_ws/src/arob_lab5-main/rrt_global_planner_plugin.xml")
+endif()
+
 if(NOT CMAKE_INSTALL_LOCAL_ONLY)
   # Include the install script for each subdirectory.
   include("/home/arob/catkin_ws/build/arob_lab5/gtest/cmake_install.cmake")

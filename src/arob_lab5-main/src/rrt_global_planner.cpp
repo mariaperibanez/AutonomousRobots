@@ -178,7 +178,6 @@ bool RRTPlanner::computeRRT(const std::vector<int> start, const std::vector<int>
     }
 
     // implement RRT here!
-
     itr_node->~TreeNode();
 
     return finished;
