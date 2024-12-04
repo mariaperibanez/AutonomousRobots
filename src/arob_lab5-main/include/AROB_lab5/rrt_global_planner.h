@@ -37,6 +37,8 @@ private:
 	bool initialized_;
 
     double max_samples_;
+    double treshold_;
+    ros::Publisher node_marker_;
 
     double max_dist_;
     double resolution_;
@@ -48,6 +50,7 @@ private:
     void getPlan(const std::vector<std::vector<int>> sol, std::vector<geometry_msgs::PoseStamped>& plan);
     void publishNodeMarker(const std::vector<int>& point, int id);
     void publishEdgeMarker(const std::vector<int>& start, const std::vector<int>& end, int id);
+    void drawMarker_(visualization_msgs::Marker& line_marker, TreeNode *node);
 };
 
 };

@@ -1,0 +1,46 @@
+[01m[K/home/arob/catkin_ws/src/arob_lab5-main/src/rrt_global_planner.cpp:[m[K In member function ‘[01m[Kvirtual void rrt_planner::RRTPlanner::initialize(std::string, costmap_2d::Costmap2DROS*)[m[K’:
+[01m[K/home/arob/catkin_ws/src/arob_lab5-main/src/rrt_global_planner.cpp:35:30:[m[K [01;31m[Kerror: [m[K‘[01m[Ktreshold_[m[K’ was not declared in this scope
+   35 |         nh.param("treshold", [01;31m[Ktreshold_[m[K, 0.5)
+      |                              [01;31m[K^~~~~~~~~[m[K
+[01m[K/home/arob/catkin_ws/src/arob_lab5-main/src/rrt_global_planner.cpp:39:33:[m[K [01;31m[Kerror: [m[K‘[01m[Kwidth[m[K’ was not declared in this scope; did you mean ‘[01m[Kwcwidth[m[K’?
+   39 |         nh_local.param("width", [01;31m[Kwidth[m[K, 3.0);
+      |                                 [01;31m[K^~~~~[m[K
+      |                                 [32m[Kwcwidth[m[K
+[01m[K/home/arob/catkin_ws/src/arob_lab5-main/src/rrt_global_planner.cpp:40:34:[m[K [01;31m[Kerror: [m[K‘[01m[Kheight[m[K’ was not declared in this scope
+   40 |         nh_local.param("height", [01;31m[Kheight[m[K, 3.0);
+      |                                  [01;31m[K^~~~~~[m[K
+[01m[K/home/arob/catkin_ws/src/arob_lab5-main/src/rrt_global_planner.cpp:[m[K In member function ‘[01m[Kvirtual bool rrt_planner::RRTPlanner::makePlan(const PoseStamped&, const PoseStamped&, std::vector<geometry_msgs::PoseStamped_<std::allocator<void> > >&)[m[K’:
+[01m[K/home/arob/catkin_ws/src/arob_lab5-main/src/rrt_global_planner.cpp:98:5:[m[K [01;31m[Kerror: [m[K‘[01m[Kcout[m[K’ was not declared in this scope; did you mean ‘[01m[Kstd::cout[m[K’?
+   98 |     [01;31m[Kcout[m[K << "computed" << computed << endl;
+      |     [01;31m[K^~~~[m[K
+      |     [32m[Kstd::cout[m[K
+In file included from [01m[K/opt/ros/noetic/include/ros/time.h:54[m[K,
+                 from [01m[K/opt/ros/noetic/include/ros/ros.h:38[m[K,
+                 from [01m[K/home/arob/catkin_ws/src/arob_lab5-main/include/AROB_lab5/rrt_global_planner.h:2[m[K,
+                 from [01m[K/home/arob/catkin_ws/src/arob_lab5-main/src/rrt_global_planner.cpp:2[m[K:
+[01m[K/usr/include/c++/9/iostream:61:18:[m[K [01;36m[Knote: [m[K‘[01m[Kstd::cout[m[K’ declared here
+   61 |   extern ostream [01;36m[Kcout[m[K;  /// Linked to standard output
+      |                  [01;36m[K^~~~[m[K
+[01m[K/home/arob/catkin_ws/src/arob_lab5-main/src/rrt_global_planner.cpp:98:39:[m[K [01;31m[Kerror: [m[K‘[01m[Kendl[m[K’ was not declared in this scope; did you mean ‘[01m[Kstd::endl[m[K’?
+   98 |     cout << "computed" << computed << [01;31m[Kendl[m[K;
+      |                                       [01;31m[K^~~~[m[K
+      |                                       [32m[Kstd::endl[m[K
+In file included from [01m[K/usr/include/boost/system/error_code.hpp:17[m[K,
+                 from [01m[K/usr/include/boost/system/system_error.hpp:11[m[K,
+                 from [01m[K/usr/include/boost/thread/exceptions.hpp:22[m[K,
+                 from [01m[K/usr/include/boost/thread/pthread/recursive_mutex.hpp:11[m[K,
+                 from [01m[K/usr/include/boost/thread/recursive_mutex.hpp:16[m[K,
+                 from [01m[K/opt/ros/noetic/include/class_loader/class_loader.hpp:37[m[K,
+                 from [01m[K/opt/ros/noetic/include/pluginlib/./class_list_macros.hpp:40[m[K,
+                 from [01m[K/opt/ros/noetic/include/pluginlib/class_list_macros.h:35[m[K,
+                 from [01m[K/home/arob/catkin_ws/src/arob_lab5-main/src/rrt_global_planner.cpp:1[m[K:
+[01m[K/usr/include/c++/9/ostream:599:5:[m[K [01;36m[Knote: [m[K‘[01m[Kstd::endl[m[K’ declared here
+  599 |     [01;36m[Kendl[m[K(basic_ostream<_CharT, _Traits>& __os)
+      |     [01;36m[K^~~~[m[K
+[01m[K/home/arob/catkin_ws/src/arob_lab5-main/src/rrt_global_planner.cpp:[m[K In member function ‘[01m[Kbool rrt_planner::RRTPlanner::computeRRT(std::vector<int>, std::vector<int>, std::vector<std::vector<int> >&)[m[K’:
+[01m[K/home/arob/catkin_ws/src/arob_lab5-main/src/rrt_global_planner.cpp:174:37:[m[K [01;31m[Kerror: [m[K‘[01m[Ktreshold_[m[K’ was not declared in this scope
+  174 |         if ((disgoal*resolution_ <= [01;31m[Ktreshold_[m[K) && (obstacleFree(x_rand, y_rand, goal[0], goal[1]))) {
+      |                                     [01;31m[K^~~~~~~~~[m[K
+make[2]: *** [CMakeFiles/rrt_global_planner_lib.dir/build.make:63: CMakeFiles/rrt_global_planner_lib.dir/src/rrt_global_planner.cpp.o] Error 1
+make[1]: *** [CMakeFiles/Makefile2:246: CMakeFiles/rrt_global_planner_lib.dir/all] Error 2
+make: *** [Makefile:141: all] Error 2

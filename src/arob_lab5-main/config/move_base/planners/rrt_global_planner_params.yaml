@@ -1,2 +1,3 @@
 RRTPlanner:
   maxsamples: 30000
+  treshold: 0.5

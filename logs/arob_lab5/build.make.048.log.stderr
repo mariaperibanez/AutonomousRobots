@@ -1,0 +1,18 @@
+[01m[K/home/arob/catkin_ws/src/arob_lab5-main/src/rrt_global_planner.cpp:[m[K In member function ‘[01m[Kvirtual void rrt_planner::RRTPlanner::initialize(std::string, costmap_2d::Costmap2DROS*)[m[K’:
+[01m[K/home/arob/catkin_ws/src/arob_lab5-main/src/rrt_global_planner.cpp:35:45:[m[K [01;31m[Kerror: [m[Kexpected ‘[01m[K;[m[K’ before ‘[01m[Kdouble[m[K’
+   35 |         nh.param("treshold", treshold_, 0.5)
+      |                                             [01;31m[K^[m[K
+      |                                             [32m[K;[m[K
+......
+   38 |         [32m[Kdouble[m[K width, height;
+      |         [32m[K~~~~~~[m[K                               
+[01m[K/home/arob/catkin_ws/src/arob_lab5-main/src/rrt_global_planner.cpp:39:33:[m[K [01;31m[Kerror: [m[K‘[01m[Kwidth[m[K’ was not declared in this scope; did you mean ‘[01m[Kwcwidth[m[K’?
+   39 |         nh_local.param("width", [01;31m[Kwidth[m[K, 3.0);
+      |                                 [01;31m[K^~~~~[m[K
+      |                                 [32m[Kwcwidth[m[K
+[01m[K/home/arob/catkin_ws/src/arob_lab5-main/src/rrt_global_planner.cpp:40:34:[m[K [01;31m[Kerror: [m[K‘[01m[Kheight[m[K’ was not declared in this scope
+   40 |         nh_local.param("height", [01;31m[Kheight[m[K, 3.0);
+      |                                  [01;31m[K^~~~~~[m[K
+make[2]: *** [CMakeFiles/rrt_global_planner_lib.dir/build.make:63: CMakeFiles/rrt_global_planner_lib.dir/src/rrt_global_planner.cpp.o] Error 1
+make[1]: *** [CMakeFiles/Makefile2:246: CMakeFiles/rrt_global_planner_lib.dir/all] Error 2
+make: *** [Makefile:141: all] Error 2
