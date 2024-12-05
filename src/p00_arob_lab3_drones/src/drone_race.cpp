@@ -9,10 +9,11 @@ DroneRace::DroneRace(ros::NodeHandle nh) : nh_(nh)
     if (!nh_.getParam("targets_file_path", targets_file_path_))
     {
         ROS_WARN("There is no 'targets_file_path' parameter. Using default value.");
-        targets_file_path_ = "/home/arob/catkin_ws/src/p00_arob_lab3_drones/data/gates.txt";
+        targets_file_path_gt = "/home/arob/catkin_ws/src/p00_arob_lab3_drones/data/gates_gt.txt";
+        targets_file_path = "/home/arob/catkin_ws/src/p00_arob_lab3_drones/data/gates.txt";
     }
     // Try to open the targets file.
-    if (!readGates_(targets_file_path_))
+    if (!readGates_(targets_file_path_gt, targets_file_path))
     {
         ROS_ERROR("Could not read targets from file: %s", targets_file_path_.c_str());
         ros::shutdown();
@@ -45,32 +46,49 @@ DroneRace::DroneRace(ros::NodeHandle nh) : nh_(nh)
 }
 
 
-bool DroneRace::readGates_(string file_name) {
-    //Open the file
-    ifstream input_file;
-    input_file.open(file_name, ifstream::in);
-    if (!input_file) {
-        cerr << "Error opening the file." << endl;
-        return false;
-    }
-    gates_.clear();
+bool DroneRace::readGates_(string file_name, string file_name_noise) {
+    for ( gate : gates_) {
+        //Open the file
+        ifstream input_file;
+        input_file.open(file_name, ifstream::in);
+        ifstream input_file_noise;
+        input_file.open(file_name_noise, ifstream::in);
+    
+        if (!input_file) {
+            cerr << "Error opening the file." << endl;
+            return false;
+        }
+        if (!input_file_noise) {
+            cerr << "Error opening the file." << endl;
+            return false;
+        }
+        gates_.clear();
+    
+        geometry_msgs::Pose temp_pose, noisy_pose;
+        double yaw = 0, noisy_yaw = 0;
+        std::string line, noisy_line;
+        while (std::getline(input_file, line) && std::getline(input_file_noise, noisy_line))
+        {
+            std::istringstream iss(line);
+            iss >> temp_pose.position.x;
+            iss >> temp_pose.position.y;
+            iss >> temp_pose.position.z;
+            iss >> yaw;
+            temp_pose.orientation = RPYToQuat_(0, 0, yaw);
+            gates_.push_back(temp_pose);
 
-    geometry_msgs::Pose temp_pose;
-    double yaw = 0;
-    std::string line;
-    while (std::getline(input_file, line))
-    {
-        std::istringstream iss(line);
-        iss >> temp_pose.position.x;
-        iss >> temp_pose.position.y;
-        iss >> temp_pose.position.z;
-        iss >> yaw;
-        temp_pose.orientation = RPYToQuat_(0, 0, yaw);
-        gates_.push_back(temp_pose);
+            // Leer valores del archivo de ruido
+            noisy_iss >> noisy_pose.position.x;
+            noisy_iss >> noisy_pose.position.y;
+            noisy_iss >> noisy_pose.position.z;
+            noisy_iss >> noisy_yaw;
+            noisy_pose.orientation = RPYToQuat_(0, 0, noisy_yaw);
+            noisy_gates.push_back(noisy_pose);
     }
 
     // Close the file
     input_file.close();
+    input_file_noise.close();
     return true;
 }
 
@@ -274,12 +292,16 @@ geometry_msgs::Quaternion DroneRace::RPYToQuat_(double roll, double pitch, doubl
 
 void DroneRace::drawGates_() {
     int id = 0;
+    int type = 0;
     for (geometry_msgs::Pose gate : gates_) {
-        drawGateMarkers_(gate,id);
+        drawGateMarkers_(gate,id, type);
+    }
+    for (geometry_msgs::Pose gate : noisy_gates) {
+        drawGateMarkers_(gate,id, type + 1);
     }
 }
 
-void DroneRace::drawGateMarkers_(geometry_msgs::Pose gate, int &id){
+void DroneRace::drawGateMarkers_(geometry_msgs::Pose gate, int &id, int type){
     visualization_msgs::Marker marker;
     visualization_msgs::MarkerArray marker_array;
     visualization_msgs::Marker line_marker;
@@ -296,10 +318,6 @@ void DroneRace::drawGateMarkers_(geometry_msgs::Pose gate, int &id){
     marker.scale.x = 0.5;
     marker.scale.y = 0.5;
     marker.scale.z = 0.5;
-    marker.color.a = 1.0;
-    marker.color.r = 1.0;
-    marker.color.g = 1.0;
-    marker.color.b = 0.0;
     marker.pose.orientation.w = 1.0;
     marker.lifetime = ros::Duration();
 
@@ -314,11 +332,17 @@ void DroneRace::drawGateMarkers_(geometry_msgs::Pose gate, int &id){
     line_marker.lifetime = ros::Duration();
 
     // Set the color (green in this case)
-    line_marker.color.r = 0.0;
-    line_marker.color.g = 1.0;
-    line_marker.color.b = 0.0;
-    line_marker.color.a = 1.0;
-
+    if (type == 0) {
+        marker.color.a = 1.0;
+        marker.color.r = 0.0;
+        marker.color.g = 1.0;
+        marker.color.b = 0.0;
+    }else {
+        marker.color.a = 1.0;
+        marker.color.r = 1.0;
+        marker.color.g = 0.0;
+        marker.color.b = 0.0;
+    }
     float gate_size = 0.75;
 
     //Generate the gate corners and edges
@@ -338,9 +362,6 @@ void DroneRace::drawGateMarkers_(geometry_msgs::Pose gate, int &id){
     marker.pose.position.y = position(1);
     marker.pose.position.z = position(2);
     marker.type = visualization_msgs::Marker::CUBE;
-    marker.color.r = 1.0;
-    marker.color.g = 0.0;
-    marker.color.b = 0.0;
     marker.scale.x = 0.2;
     marker.scale.y = 0.2;
     marker.scale.z = 0.2;
@@ -365,9 +386,6 @@ void DroneRace::drawGateMarkers_(geometry_msgs::Pose gate, int &id){
     marker.pose.position.y = position(1);
     marker.pose.position.z = position(2);
     marker.type = visualization_msgs::Marker::SPHERE;
-    marker.color.r = 1.0;
-    marker.color.g = 1.0;
-    marker.color.b = 0.0;
     marker.scale.x = 0.5;
     marker.scale.y = 0.5;
     marker.scale.z = 0.5;
