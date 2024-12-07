@@ -43,7 +43,9 @@ private:
 
     // Mission description
     std::string targets_file_path_;
+    std::string targets_file_path_gt;
     std::vector<geometry_msgs::Pose> gates_;
+    std::vector<geometry_msgs::Pose> noisy_gates;
 
     // Trajectory
     mav_trajectory_generation::Trajectory trajectory_;
@@ -63,7 +65,7 @@ private:
     //Id markers
     int id_marker = 0;
 
-    bool readGates_(std::string file_name);
+    bool readGates_(std::string file_name, std::string file_name_noise);
 
     void generateTrajectoryExample_(); 
     void generateTrajectory_();
@@ -77,7 +79,7 @@ private:
 
     void drawGoalMarker_(mav_trajectory_generation::Vertex goal);
     void drawGates_();
-    void drawGateMarkers_(geometry_msgs::Pose gate, int &id);
+    void drawGateMarkers_(geometry_msgs::Pose gate, int &id, int type);
     void drawTrajectoryMarkers_();
 };
 

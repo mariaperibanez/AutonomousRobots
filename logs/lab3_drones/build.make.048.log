@@ -1,0 +1,41 @@
+[35m[1mScanning dependencies of target drone_race[0m
+[ 33%] [32mBuilding CXX object CMakeFiles/drone_race.dir/src/drone_race.cpp.o[0m
+[ 66%] [32mBuilding CXX object CMakeFiles/drone_race.dir/src/drone_race_node.cpp.o[0m
+[01m[K/home/arob/catkin_ws/src/p00_arob_lab3_drones/src/drone_race.cpp:[m[K In member function ‘[01m[Kbool DroneRace::readGates_(std::string, std::string)[m[K’:
+[01m[K/home/arob/catkin_ws/src/p00_arob_lab3_drones/src/drone_race.cpp:50:16:[m[K [01;31m[Kerror: [m[Kfound ‘[01m[K:[m[K’ in nested-name-specifier, expected ‘[01m[K::[m[K’
+   50 |     for ( gate [01;31m[K:[m[K gates_) {
+      |                [01;31m[K^[m[K
+      |                [32m[K::[m[K
+[01m[K/home/arob/catkin_ws/src/p00_arob_lab3_drones/src/drone_race.cpp:50:11:[m[K [01;31m[Kerror: [m[K‘[01m[Kgate[m[K’ has not been declared
+   50 |     for ( [01;31m[Kgate[m[K : gates_) {
+      |           [01;31m[K^~~~[m[K
+[01m[K/home/arob/catkin_ws/src/p00_arob_lab3_drones/src/drone_race.cpp:95:38:[m[K [01;31m[Kerror: [m[Kqualified-id in declaration before ‘[01m[K([m[K’ token
+   95 | void DroneRace::commandTimerCallback_[01;31m[K([m[Kconst ros::TimerEvent& event) {
+      |                                      [01;31m[K^[m[K
+[01m[K/home/arob/catkin_ws/src/p00_arob_lab3_drones/src/drone_race.cpp:469:2:[m[K [01;31m[Kerror: [m[Kexpected ‘[01m[K;[m[K’ at end of input
+  469 | [32m[K}[m[K
+      | [32m[K~[m[K[01;31m[K^[m[K
+      |  [32m[K;[m[K
+[01m[K/home/arob/catkin_ws/src/p00_arob_lab3_drones/src/drone_race.cpp:469:1:[m[K [01;31m[Kerror: [m[Kexpected primary-expression at end of input
+  469 | [01;31m[K}[m[K
+      | [01;31m[K^[m[K
+[01m[K/home/arob/catkin_ws/src/p00_arob_lab3_drones/src/drone_race.cpp:469:2:[m[K [01;31m[Kerror: [m[Kexpected ‘[01m[K)[m[K’ at end of input
+  469 | [32m[K}[m[K
+      | [32m[K~[m[K[01;31m[K^[m[K
+      |  [32m[K)[m[K
+[01m[K/home/arob/catkin_ws/src/p00_arob_lab3_drones/src/drone_race.cpp:50:9:[m[K [01;36m[Knote: [m[Kto match this ‘[01m[K([m[K’
+   50 |     for [01;36m[K([m[K gate : gates_) {
+      |         [01;36m[K^[m[K
+[01m[K/home/arob/catkin_ws/src/p00_arob_lab3_drones/src/drone_race.cpp:469:1:[m[K [01;31m[Kerror: [m[Kexpected statement at end of input
+  469 | [01;31m[K}[m[K
+      | [01;31m[K^[m[K
+[01m[K/home/arob/catkin_ws/src/p00_arob_lab3_drones/src/drone_race.cpp:469:1:[m[K [01;31m[Kerror: [m[Kexpected ‘[01m[K}[m[K’ at end of input
+[01m[K/home/arob/catkin_ws/src/p00_arob_lab3_drones/src/drone_race.cpp:49:70:[m[K [01;36m[Knote: [m[Kto match this ‘[01m[K{[m[K’
+   49 | bool DroneRace::readGates_(string file_name, string file_name_noise) [01;36m[K{[m[K
+      |                                                                      [01;36m[K^[m[K
+[01m[K/home/arob/catkin_ws/src/p00_arob_lab3_drones/src/drone_race.cpp:469:1:[m[K [01;35m[Kwarning: [m[Kno return statement in function returning non-void [[01;35m[K-Wreturn-type[m[K]
+  469 | [01;35m[K}[m[K
+      | [01;35m[K^[m[K
+make[2]: *** [CMakeFiles/drone_race.dir/build.make:63: CMakeFiles/drone_race.dir/src/drone_race.cpp.o] Error 1
+make[1]: *** [CMakeFiles/Makefile2:200: CMakeFiles/drone_race.dir/all] Error 2
+make: *** [Makefile:141: all] Error 2

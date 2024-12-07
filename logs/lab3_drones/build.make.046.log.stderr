@@ -1,0 +1,31 @@
+[01m[K/home/arob/catkin_ws/src/p00_arob_lab3_drones/src/drone_race.cpp:[m[K In constructor ‘[01m[KDroneRace::DroneRace(ros::NodeHandle)[m[K’:
+[01m[K/home/arob/catkin_ws/src/p00_arob_lab3_drones/src/drone_race.cpp:12:9:[m[K [01;31m[Kerror: [m[K‘[01m[Ktargets_file_path_gt[m[K’ was not declared in this scope; did you mean ‘[01m[Ktargets_file_path_[m[K’?
+   12 |         [01;31m[Ktargets_file_path_gt[m[K = "/home/arob/catkin_ws/src/p00_arob_lab3_drones/data/gates.txt";
+      |         [01;31m[K^~~~~~~~~~~~~~~~~~~~[m[K
+      |         [32m[Ktargets_file_path_[m[K
+[01m[K/home/arob/catkin_ws/src/p00_arob_lab3_drones/src/drone_race.cpp:13:9:[m[K [01;31m[Kerror: [m[K‘[01m[Ktargets_file_path[m[K’ was not declared in this scope; did you mean ‘[01m[Ktargets_file_path_[m[K’?
+   13 |         [01;31m[Ktargets_file_path[m[K = "/home/arob/catkin_ws/src/p00_arob_lab3_drones/data/gates_noise.txt";
+      |         [01;31m[K^~~~~~~~~~~~~~~~~[m[K
+      |         [32m[Ktargets_file_path_[m[K
+[01m[K/home/arob/catkin_ws/src/p00_arob_lab3_drones/src/drone_race.cpp:16:21:[m[K [01;31m[Kerror: [m[K‘[01m[Ktargets_file_path_gt[m[K’ was not declared in this scope; did you mean ‘[01m[Ktargets_file_path_[m[K’?
+   16 |     if (!readGates_([01;31m[Ktargets_file_path_gt[m[K, targets_file_path))
+      |                     [01;31m[K^~~~~~~~~~~~~~~~~~~~[m[K
+      |                     [32m[Ktargets_file_path_[m[K
+[01m[K/home/arob/catkin_ws/src/p00_arob_lab3_drones/src/drone_race.cpp:16:43:[m[K [01;31m[Kerror: [m[K‘[01m[Ktargets_file_path[m[K’ was not declared in this scope; did you mean ‘[01m[Ktargets_file_path_[m[K’?
+   16 |     if (!readGates_(targets_file_path_gt, [01;31m[Ktargets_file_path[m[K))
+      |                                           [01;31m[K^~~~~~~~~~~~~~~~~[m[K
+      |                                           [32m[Ktargets_file_path_[m[K
+[01m[K/home/arob/catkin_ws/src/p00_arob_lab3_drones/src/drone_race.cpp:[m[K At global scope:
+[01m[K/home/arob/catkin_ws/src/p00_arob_lab3_drones/src/drone_race.cpp:49:6:[m[K [01;31m[Kerror: [m[Kno declaration matches ‘[01m[Kbool DroneRace::readGates_(std::string, std::string)[m[K’
+   49 | bool [01;31m[KDroneRace[m[K::readGates_(string file_name, string file_name_noise) {
+      |      [01;31m[K^~~~~~~~~[m[K
+In file included from [01m[K/home/arob/catkin_ws/src/p00_arob_lab3_drones/src/drone_race.cpp:1[m[K:
+[01m[K/home/arob/catkin_ws/src/p00_arob_lab3_drones/include/lab3_drones/drone_race.hpp:66:10:[m[K [01;36m[Knote: [m[Kcandidate is: ‘[01m[Kbool DroneRace::readGates_(std::string)[m[K’
+   66 |     bool [01;36m[KreadGates_[m[K(std::string file_name);
+      |          [01;36m[K^~~~~~~~~~[m[K
+[01m[K/home/arob/catkin_ws/src/p00_arob_lab3_drones/include/lab3_drones/drone_race.hpp:24:7:[m[K [01;36m[Knote: [m[K‘[01m[Kclass DroneRace[m[K’ defined here
+   24 | class [01;36m[KDroneRace[m[K {
+      |       [01;36m[K^~~~~~~~~[m[K
+make[2]: *** [CMakeFiles/drone_race.dir/build.make:63: CMakeFiles/drone_race.dir/src/drone_race.cpp.o] Error 1
+make[1]: *** [CMakeFiles/Makefile2:200: CMakeFiles/drone_race.dir/all] Error 2
+make: *** [Makefile:141: all] Error 2

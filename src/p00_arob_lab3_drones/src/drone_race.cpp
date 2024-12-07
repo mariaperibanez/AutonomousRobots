@@ -9,11 +9,11 @@ DroneRace::DroneRace(ros::NodeHandle nh) : nh_(nh)
     if (!nh_.getParam("targets_file_path", targets_file_path_))
     {
         ROS_WARN("There is no 'targets_file_path' parameter. Using default value.");
-        targets_file_path_gt = "/home/arob/catkin_ws/src/p00_arob_lab3_drones/data/gates_gt.txt";
-        targets_file_path = "/home/arob/catkin_ws/src/p00_arob_lab3_drones/data/gates.txt";
+        targets_file_path_gt = "/home/arob/catkin_ws/src/p00_arob_lab3_drones/data/gates.txt";
+        targets_file_path_ = "/home/arob/catkin_ws/src/p00_arob_lab3_drones/data/gates_noise.txt";
     }
     // Try to open the targets file.
-    if (!readGates_(targets_file_path_gt, targets_file_path))
+    if (!readGates_(targets_file_path_gt, targets_file_path_))
     {
         ROS_ERROR("Could not read targets from file: %s", targets_file_path_.c_str());
         ros::shutdown();
@@ -47,7 +47,6 @@ DroneRace::DroneRace(ros::NodeHandle nh) : nh_(nh)
 
 
 bool DroneRace::readGates_(string file_name, string file_name_noise) {
-    for ( gate : gates_) {
         //Open the file
         ifstream input_file;
         input_file.open(file_name, ifstream::in);
@@ -63,6 +62,7 @@ bool DroneRace::readGates_(string file_name, string file_name_noise) {
             return false;
         }
         gates_.clear();
+        noisy_gates.clear();
     
         geometry_msgs::Pose temp_pose, noisy_pose;
         double yaw = 0, noisy_yaw = 0;
@@ -78,13 +78,14 @@ bool DroneRace::readGates_(string file_name, string file_name_noise) {
             gates_.push_back(temp_pose);
 
             // Leer valores del archivo de ruido
+            std::istringstream noisy_iss(line);
             noisy_iss >> noisy_pose.position.x;
             noisy_iss >> noisy_pose.position.y;
             noisy_iss >> noisy_pose.position.z;
             noisy_iss >> noisy_yaw;
             noisy_pose.orientation = RPYToQuat_(0, 0, noisy_yaw);
             noisy_gates.push_back(noisy_pose);
-    }
+        }
 
     // Close the file
     input_file.close();

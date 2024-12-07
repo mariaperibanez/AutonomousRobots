@@ -1,0 +1,44 @@
+[35m[1mScanning dependencies of target drone_race[0m
+[ 33%] [32mBuilding CXX object CMakeFiles/drone_race.dir/src/drone_race.cpp.o[0m
+[01m[K/home/arob/catkin_ws/src/p00_arob_lab3_drones/src/drone_race.cpp:[m[K In member function ‘[01m[Kbool DroneRace::readGates_(std::string, std::string)[m[K’:
+[01m[K/home/arob/catkin_ws/src/p00_arob_lab3_drones/src/drone_race.cpp:80:13:[m[K [01;31m[Kerror: [m[K‘[01m[Knoisy_iss[m[K’ was not declared in this scope; did you mean ‘[01m[Knoisy_line[m[K’?
+   80 |             [01;31m[Knoisy_iss[m[K >> noisy_pose.position.x;
+      |             [01;31m[K^~~~~~~~~[m[K
+      |             [32m[Knoisy_line[m[K
+[01m[K/home/arob/catkin_ws/src/p00_arob_lab3_drones/src/drone_race.cpp:85:13:[m[K [01;31m[Kerror: [m[K‘[01m[Knoisy_gates[m[K’ was not declared in this scope
+   85 |             [01;31m[Knoisy_gates[m[K.push_back(noisy_pose);
+      |             [01;31m[K^~~~~~~~~~~[m[K
+[01m[K/home/arob/catkin_ws/src/p00_arob_lab3_drones/src/drone_race.cpp:[m[K In member function ‘[01m[Kvoid DroneRace::drawGates_()[m[K’:
+[01m[K/home/arob/catkin_ws/src/p00_arob_lab3_drones/src/drone_race.cpp:296:39:[m[K [01;31m[Kerror: [m[Kno matching function for call to ‘[01m[KDroneRace::drawGateMarkers_(geometry_msgs::Pose&, int&, int&)[m[K’
+  296 |         drawGateMarkers_(gate,id, type[01;31m[K)[m[K;
+      |                                       [01;31m[K^[m[K
+In file included from [01m[K/home/arob/catkin_ws/src/p00_arob_lab3_drones/src/drone_race.cpp:1[m[K:
+[01m[K/home/arob/catkin_ws/src/p00_arob_lab3_drones/include/lab3_drones/drone_race.hpp:81:10:[m[K [01;36m[Knote: [m[Kcandidate: ‘[01m[Kvoid DroneRace::drawGateMarkers_(geometry_msgs::Pose, int&)[m[K’
+   81 |     void [01;36m[KdrawGateMarkers_[m[K(geometry_msgs::Pose gate, int &id);
+      |          [01;36m[K^~~~~~~~~~~~~~~~[m[K
+[01m[K/home/arob/catkin_ws/src/p00_arob_lab3_drones/include/lab3_drones/drone_race.hpp:81:10:[m[K [01;36m[Knote: [m[K  candidate expects 2 arguments, 3 provided
+[01m[K/home/arob/catkin_ws/src/p00_arob_lab3_drones/src/drone_race.cpp:298:37:[m[K [01;31m[Kerror: [m[K‘[01m[Knoisy_gates[m[K’ was not declared in this scope
+  298 |     for (geometry_msgs::Pose gate : [01;31m[Knoisy_gates[m[K) {
+      |                                     [01;31m[K^~~~~~~~~~~[m[K
+[01m[K/home/arob/catkin_ws/src/p00_arob_lab3_drones/src/drone_race.cpp:299:43:[m[K [01;31m[Kerror: [m[Kno matching function for call to ‘[01m[KDroneRace::drawGateMarkers_(geometry_msgs::Pose&, int&, int)[m[K’
+  299 |         drawGateMarkers_(gate,id, type + 1[01;31m[K)[m[K;
+      |                                           [01;31m[K^[m[K
+In file included from [01m[K/home/arob/catkin_ws/src/p00_arob_lab3_drones/src/drone_race.cpp:1[m[K:
+[01m[K/home/arob/catkin_ws/src/p00_arob_lab3_drones/include/lab3_drones/drone_race.hpp:81:10:[m[K [01;36m[Knote: [m[Kcandidate: ‘[01m[Kvoid DroneRace::drawGateMarkers_(geometry_msgs::Pose, int&)[m[K’
+   81 |     void [01;36m[KdrawGateMarkers_[m[K(geometry_msgs::Pose gate, int &id);
+      |          [01;36m[K^~~~~~~~~~~~~~~~[m[K
+[01m[K/home/arob/catkin_ws/src/p00_arob_lab3_drones/include/lab3_drones/drone_race.hpp:81:10:[m[K [01;36m[Knote: [m[K  candidate expects 2 arguments, 3 provided
+[01m[K/home/arob/catkin_ws/src/p00_arob_lab3_drones/src/drone_race.cpp:[m[K At global scope:
+[01m[K/home/arob/catkin_ws/src/p00_arob_lab3_drones/src/drone_race.cpp:303:6:[m[K [01;31m[Kerror: [m[Kno declaration matches ‘[01m[Kvoid DroneRace::drawGateMarkers_(geometry_msgs::Pose, int&, int)[m[K’
+  303 | void [01;31m[KDroneRace[m[K::drawGateMarkers_(geometry_msgs::Pose gate, int &id, int type){
+      |      [01;31m[K^~~~~~~~~[m[K
+In file included from [01m[K/home/arob/catkin_ws/src/p00_arob_lab3_drones/src/drone_race.cpp:1[m[K:
+[01m[K/home/arob/catkin_ws/src/p00_arob_lab3_drones/include/lab3_drones/drone_race.hpp:81:10:[m[K [01;36m[Knote: [m[Kcandidate is: ‘[01m[Kvoid DroneRace::drawGateMarkers_(geometry_msgs::Pose, int&)[m[K’
+   81 |     void [01;36m[KdrawGateMarkers_[m[K(geometry_msgs::Pose gate, int &id);
+      |          [01;36m[K^~~~~~~~~~~~~~~~[m[K
+[01m[K/home/arob/catkin_ws/src/p00_arob_lab3_drones/include/lab3_drones/drone_race.hpp:24:7:[m[K [01;36m[Knote: [m[K‘[01m[Kclass DroneRace[m[K’ defined here
+   24 | class [01;36m[KDroneRace[m[K {
+      |       [01;36m[K^~~~~~~~~[m[K
+make[2]: *** [CMakeFiles/drone_race.dir/build.make:63: CMakeFiles/drone_race.dir/src/drone_race.cpp.o] Error 1
+make[1]: *** [CMakeFiles/Makefile2:200: CMakeFiles/drone_race.dir/all] Error 2
+make: *** [Makefile:141: all] Error 2
