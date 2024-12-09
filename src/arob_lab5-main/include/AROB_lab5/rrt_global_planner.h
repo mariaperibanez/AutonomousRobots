@@ -41,7 +41,6 @@ private:
     double max_samples_;
     double treshold_;
     ros::Publisher node_marker_;
-    ros::Publisher path_pub_;
 
     double max_dist_;
     double resolution_;
@@ -52,7 +51,6 @@ private:
                             std::vector<std::vector<int>>& sol);
     void getPlan(const std::vector<std::vector<int>> sol, std::vector<geometry_msgs::PoseStamped>& plan);
     void drawMarker_(visualization_msgs::Marker& line_marker, TreeNode *node);
-    void publishPath(TreeNode *current_node);
 };
 
 };

@@ -1,0 +1,28 @@
+[01m[K/home/arob/catkin_ws/src/arob_lab5-main/src/rrt_global_planner.cpp:[m[K In member function ‘[01m[Kbool rrt_planner::RRTPlanner::computeRRT(std::vector<int>, std::vector<int>, std::vector<std::vector<int> >&)[m[K’:
+[01m[K/home/arob/catkin_ws/src/arob_lab5-main/src/rrt_global_planner.cpp:184:49:[m[K [01;35m[Kwarning: [m[Knarrowing conversion of ‘[01m[K(((unsigned int)x_rand) - x0)[m[K’ from ‘[01m[Kunsigned int[m[K’ to ‘[01m[Kint[m[K’ [[01;35m[K-Wnarrowing[m[K]
+  184 |        std::vector <int> near_to_rand = {[01;35m[Kx_rand - x0[m[K, y_rand - y0};
+      |                                          [01;35m[K~~~~~~~^~~~[m[K
+[01m[K/home/arob/catkin_ws/src/arob_lab5-main/src/rrt_global_planner.cpp:184:49:[m[K [01;35m[Kwarning: [m[Knarrowing conversion of ‘[01m[K(((unsigned int)x_rand) - x0)[m[K’ from ‘[01m[Kunsigned int[m[K’ to ‘[01m[Kint[m[K’ [[01;35m[K-Wnarrowing[m[K]
+[01m[K/home/arob/catkin_ws/src/arob_lab5-main/src/rrt_global_planner.cpp:184:62:[m[K [01;35m[Kwarning: [m[Knarrowing conversion of ‘[01m[K(((unsigned int)y_rand) - y0)[m[K’ from ‘[01m[Kunsigned int[m[K’ to ‘[01m[Kint[m[K’ [[01;35m[K-Wnarrowing[m[K]
+  184 |        std::vector <int> near_to_rand = {x_rand - x0, [01;35m[Ky_rand - y0[m[K};
+      |                                                       [01;35m[K~~~~~~~^~~~[m[K
+[01m[K/home/arob/catkin_ws/src/arob_lab5-main/src/rrt_global_planner.cpp:184:62:[m[K [01;35m[Kwarning: [m[Knarrowing conversion of ‘[01m[K(((unsigned int)y_rand) - y0)[m[K’ from ‘[01m[Kunsigned int[m[K’ to ‘[01m[Kint[m[K’ [[01;35m[K-Wnarrowing[m[K]
+[01m[K/home/arob/catkin_ws/src/arob_lab5-main/src/rrt_global_planner.cpp:200:21:[m[K [01;31m[Kerror: [m[K‘[01m[Kx_near_coord[m[K’ was not declared in this scope
+  200 |            x_rand = [01;31m[Kx_near_coord[m[K[0] + ntr_direction[0];
+      |                     [01;31m[K^~~~~~~~~~~~[m[K
+[01m[K/home/arob/catkin_ws/src/arob_lab5-main/src/rrt_global_planner.cpp:202:45:[m[K [01;31m[Kerror: [m[K‘[01m[Kx[m[K’ was not declared in this scope; did you mean ‘[01m[Kx0[m[K’?
+  202 |            std::vector <int> x_new_coord = {[01;31m[Kx[m[K, y};
+      |                                             [01;31m[K^[m[K
+      |                                             [32m[Kx0[m[K
+[01m[K/home/arob/catkin_ws/src/arob_lab5-main/src/rrt_global_planner.cpp:202:48:[m[K [01;31m[Kerror: [m[K‘[01m[Ky[m[K’ was not declared in this scope; did you mean ‘[01m[Kyn[m[K’?
+  202 |            std::vector <int> x_new_coord = {x, [01;31m[Ky[m[K};
+      |                                                [01;31m[K^[m[K
+      |                                                [32m[Kyn[m[K
+[01m[K/home/arob/catkin_ws/src/arob_lab5-main/src/rrt_global_planner.cpp:202:49:[m[K [01;31m[Kerror: [m[Kcould not convert ‘[01m[K{<expression error>, <expression error>}[m[K’ from ‘[01m[K<brace-enclosed initializer list>[m[K’ to ‘[01m[Kstd::vector<int>[m[K’
+  202 |            std::vector <int> x_new_coord = {x, y[01;31m[K}[m[K;
+      |                                                 [01;31m[K^[m[K
+      |                                                 [01;31m[K|[m[K
+      |                                                 [01;31m[K<brace-enclosed initializer list>[m[K
+make[2]: *** [CMakeFiles/rrt_global_planner_lib.dir/build.make:63: CMakeFiles/rrt_global_planner_lib.dir/src/rrt_global_planner.cpp.o] Error 1
+make[1]: *** [CMakeFiles/Makefile2:246: CMakeFiles/rrt_global_planner_lib.dir/all] Error 2
+make: *** [Makefile:141: all] Error 2

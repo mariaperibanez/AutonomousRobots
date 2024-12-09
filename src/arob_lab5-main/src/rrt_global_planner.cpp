@@ -2,7 +2,6 @@
 #include "AROB_lab5/rrt_global_planner.h"
 #include <visualization_msgs/Marker.h>
 #include <visualization_msgs/MarkerArray.h>
-#include <nav_msgs/Path.h>
 
 
 //register this planner as a BaseGlobalPlanner plugin
@@ -48,7 +47,6 @@ void RRTPlanner::initialize(std::string name, costmap_2d::Costmap2DROS* costmap_
         ros::NodeHandle nh_local("~/local_costmap/");
         ros::NodeHandle nh_global("~/global_costmap/");
         node_marker_ = nh.advertise<visualization_msgs::Marker>("/rrt_marker", 10);
-        path_pub_ = nh.advertise<nav_msgs::Path>("rrt_path", 10);
 
         nh.param("maxsamples", max_samples_, 0.0);
         nh.param("treshold", treshold_, 0.5);
@@ -155,7 +153,7 @@ bool RRTPlanner::computeRRT(const std::vector<int> start, const std::vector<int>
         int x_rand = rand() % costmap_->getSizeInCellsX(); 
         int y_rand = rand() % costmap_->getSizeInCellsY(); 
         
-        // if punto del arbol y el goal estan sin obstaculos, acabar y devolver el true
+        
         if (costmap_->getCost(x_rand, y_rand) != costmap_2d::FREE_SPACE){
             continue;
         }
@@ -168,29 +166,35 @@ bool RRTPlanner::computeRRT(const std::vector<int> start, const std::vector<int>
         unsigned int x0 = nearest->getNode()[0];
         unsigned int y0 = nearest->getNode()[1];
 
-        // Verificar si el camino está libre de obstáculos
+        // Verify if the path is free of obstacles
         if(!obstacleFree( x0, y0, x_rand, y_rand )){
             delete new_node;
             continue;
         }
-        
-        // if maxdist actualizamos a la distancia maxima TODO: si nos returnea False, podemos hacer esto antes de la comprobacion de FREE_SPACE 
-        double dist = distance(x0, y0, x_rand, y_rand);
-        std::cout << "Distance to goal: " << dist << std::endl;
-        std::cout << "Max dist: " << max_dist_ << std::endl;
-        
-        if ( dist*resolution_ > max_dist_){
-            std::vector<float> direction{(float)(x0-x_rand)/dist, (float)(y0-y_rand)/dist};
-            x_rand = direction[0] * max_dist_;
-            y_rand = direction[1] * max_dist_;
-        }
+         
 
-        // Crear un nuevo nodo y agregarlo al árbol
+        // Adjust the distance to the random point to the maximum distance in the same direction
+       std::vector <int> near_to_rand = {x_rand - x0, y_rand - y0};
+       double dist = sqrt(near_to_rand[0] * near_to_rand[0] + near_to_rand[1] * near_to_rand[1]);
+
+      
+       if (dist > max_dist_ / resolution_){
+           std::vector <int> ntr_direction = {
+               static_cast<int>(static_cast<double>(near_to_rand[0]) * (max_dist_ / resolution_) / dist),
+               static_cast<int>(static_cast<double>(near_to_rand[1]) * (max_dist_ / resolution_) / dist)
+           };
+
+           x_rand = x0 + ntr_direction[0];
+           y_rand = y0 + ntr_direction[1];
+           std::vector <int> x_new_coord = {x_rand, y_rand};
+           new_node = new TreeNode(x_new_coord); // Updates the random node
+       }
+
+
+        // Create a new node and add it to the tree 
         nearest->appendChild(new_node);
         // Draw the new node and the path to the nearest node.
         drawMarker_(treeMarker, new_node);
-
-        publishPath(new_node);
 
         double disgoal = distance(x_rand, y_rand, goal[0], goal[1]);
         
@@ -201,8 +205,7 @@ bool RRTPlanner::computeRRT(const std::vector<int> start, const std::vector<int>
             new_node->appendChild(final_node);
             drawMarker_(treeMarker, final_node);
             ROS_INFO("Goal reached");
-            sol = new_node->returnSolution(); 
-            publishPath(final_node); 
+            sol = new_node->returnSolution();  
             finished = true;
             break;
         }
@@ -302,41 +305,6 @@ void RRTPlanner::getPlan(const std::vector<std::vector<int>> sol, std::vector<ge
         plan.push_back(pose);
 
     }
-}
-
-void RRTPlanner::publishPath(TreeNode *current_node) {
-   nav_msgs::Path path_msg;
-   path_msg.header.stamp = ros::Time::now();
-   path_msg.header.frame_id = "map";  // Frame of the costmap
-
-
-   // Go through the target node to the start node to create the path
-   TreeNode *current = current_node;
-   while (current != nullptr) {
-       geometry_msgs::PoseStamped pose;
-       pose.header.stamp = ros::Time::now();
-       pose.header.frame_id = "map";
-
-
-       // Convert the coord of the node to real coord
-       std::vector<int> coord = current->getNode();
-       pose.pose.position.x = coord[0] * resolution_;  // Real coord
-       pose.pose.position.y = coord[1] * resolution_;
-       pose.pose.position.z = 0.0;
-       pose.pose.orientation.w = 1.0;  // Without an specific orientation
-
-
-       path_msg.poses.push_back(pose);
-       current = current->getParent();  // Go back to the parent node
-   }
-
-
-   // Reverse the path to start from the beginning
-   std::reverse(path_msg.poses.begin(), path_msg.poses.end());
-
-
-   // Publica el path
-   path_pub_.publish(path_msg);
 }
 
 
