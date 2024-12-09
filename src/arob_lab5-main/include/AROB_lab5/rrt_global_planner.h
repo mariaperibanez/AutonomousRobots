@@ -35,10 +35,13 @@ private:
 	costmap_2d::Costmap2D* costmap_;
     std::string global_frame_id_;
 	bool initialized_;
+    bool tree_initialized_;
+    TreeNode* tree_;
 
     double max_samples_;
     double treshold_;
     ros::Publisher node_marker_;
+    ros::Publisher path_pub_;
 
     double max_dist_;
     double resolution_;
@@ -48,9 +51,8 @@ private:
     bool computeRRT(const std::vector<int> start, const std::vector<int> goal, 
                             std::vector<std::vector<int>>& sol);
     void getPlan(const std::vector<std::vector<int>> sol, std::vector<geometry_msgs::PoseStamped>& plan);
-    void publishNodeMarker(const std::vector<int>& point, int id);
-    void publishEdgeMarker(const std::vector<int>& start, const std::vector<int>& end, int id);
     void drawMarker_(visualization_msgs::Marker& line_marker, TreeNode *node);
+    void publishPath(TreeNode *current_node);
 };
 
 };

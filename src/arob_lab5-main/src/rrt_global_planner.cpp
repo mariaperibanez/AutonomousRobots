@@ -2,6 +2,7 @@
 #include "AROB_lab5/rrt_global_planner.h"
 #include <visualization_msgs/Marker.h>
 #include <visualization_msgs/MarkerArray.h>
+#include <nav_msgs/Path.h>
 
 
 //register this planner as a BaseGlobalPlanner plugin
@@ -33,8 +34,8 @@ visualization_msgs::Marker createLineMarker(std::string frame_id){
 
 }
 
-RRTPlanner::RRTPlanner() : costmap_ros_(NULL), initialized_(false),
-                            max_samples_(0.0){}
+RRTPlanner::RRTPlanner() : costmap_ros_(NULL), initialized_(false), tree_initialized_(false),
+                            max_samples_(0.0), tree_(nullptr){}
 
 RRTPlanner::RRTPlanner(std::string name, costmap_2d::Costmap2DROS* costmap_ros){
     initialize(name, costmap_ros);
@@ -47,9 +48,7 @@ void RRTPlanner::initialize(std::string name, costmap_2d::Costmap2DROS* costmap_
         ros::NodeHandle nh_local("~/local_costmap/");
         ros::NodeHandle nh_global("~/global_costmap/");
         node_marker_ = nh.advertise<visualization_msgs::Marker>("/rrt_marker", 10);
-
-	    //ros::Publisher vis_pub = node_handle.advertise<visualization_msgs::Marker>("visualization_marker", 0);
-
+        path_pub_ = nh.advertise<nav_msgs::Path>("rrt_path", 10);
 
         nh.param("maxsamples", max_samples_, 0.0);
         nh.param("treshold", treshold_, 0.5);
@@ -114,21 +113,29 @@ bool RRTPlanner::makePlan(const geometry_msgs::PoseStamped& start, const geometr
     std::vector<int> point_start{(int)start_mx,(int)start_my};
     std::vector<int> point_goal{(int)goal_mx,(int)goal_my};    
   	std::vector<std::vector<int>> solRRT;
-    bool computed = computeRRT(point_start, point_goal, solRRT);
-    std::cout << "computed" << computed << std::endl;
-    if (computed){        
+    
+    if (!tree_initialized_){
+        bool computed = computeRRT(point_start, point_goal, solRRT);
+        std::cout << "computed" << computed << std::endl;
+        if (computed){        
+            getPlan(solRRT, plan);
+            // add goal
+            plan.push_back(goal);
+            tree_initialized_ = true;
+        }else{
+            ROS_WARN("No plan computed");
+            return false;
+        }
+    } else {
         getPlan(solRRT, plan);
-        // add goal
-        plan.push_back(goal);
-    }else{
-        ROS_WARN("No plan computed");
     }
 
-    return computed;
+    return true;
 }
 
 bool RRTPlanner::computeRRT(const std::vector<int> start, const std::vector<int> goal, 
                             std::vector<std::vector<int>>& sol){
+    
     bool finished = false;
     int iter = 0;
 
@@ -183,6 +190,8 @@ bool RRTPlanner::computeRRT(const std::vector<int> start, const std::vector<int>
         // Draw the new node and the path to the nearest node.
         drawMarker_(treeMarker, new_node);
 
+        publishPath(new_node);
+
         double disgoal = distance(x_rand, y_rand, goal[0], goal[1]);
         
         // Comprobar si se alcanza la meta
@@ -192,7 +201,8 @@ bool RRTPlanner::computeRRT(const std::vector<int> start, const std::vector<int>
             new_node->appendChild(final_node);
             drawMarker_(treeMarker, final_node);
             ROS_INFO("Goal reached");
-            sol = new_node->returnSolution();  
+            sol = new_node->returnSolution(); 
+            publishPath(final_node); 
             finished = true;
             break;
         }
@@ -292,6 +302,41 @@ void RRTPlanner::getPlan(const std::vector<std::vector<int>> sol, std::vector<ge
         plan.push_back(pose);
 
     }
+}
+
+void RRTPlanner::publishPath(TreeNode *current_node) {
+   nav_msgs::Path path_msg;
+   path_msg.header.stamp = ros::Time::now();
+   path_msg.header.frame_id = "map";  // Frame of the costmap
+
+
+   // Go through the target node to the start node to create the path
+   TreeNode *current = current_node;
+   while (current != nullptr) {
+       geometry_msgs::PoseStamped pose;
+       pose.header.stamp = ros::Time::now();
+       pose.header.frame_id = "map";
+
+
+       // Convert the coord of the node to real coord
+       std::vector<int> coord = current->getNode();
+       pose.pose.position.x = coord[0] * resolution_;  // Real coord
+       pose.pose.position.y = coord[1] * resolution_;
+       pose.pose.position.z = 0.0;
+       pose.pose.orientation.w = 1.0;  // Without an specific orientation
+
+
+       path_msg.poses.push_back(pose);
+       current = current->getParent();  // Go back to the parent node
+   }
+
+
+   // Reverse the path to start from the beginning
+   std::reverse(path_msg.poses.begin(), path_msg.poses.end());
+
+
+   // Publica el path
+   path_pub_.publish(path_msg);
 }
 
 

@@ -1,0 +1,49 @@
+[35m[1mScanning dependencies of target rrt_global_planner_lib[0m
+[ 33%] [32mBuilding CXX object CMakeFiles/rrt_global_planner_lib.dir/src/rrt_global_planner.cpp.o[0m
+[01m[K/home/arob/catkin_ws/src/arob_lab5-main/src/rrt_global_planner.cpp:[m[K In member function ‘[01m[Kvirtual void rrt_planner::RRTPlanner::initialize(std::string, costmap_2d::Costmap2DROS*)[m[K’:
+[01m[K/home/arob/catkin_ws/src/arob_lab5-main/src/rrt_global_planner.cpp:50:44:[m[K [01;31m[Kerror: [m[K‘[01m[KPath[m[K’ is not a member of ‘[01m[Knav_msgs[m[K’
+   50 |         path_pub_ = nh.advertise<nav_msgs::[01;31m[KPath[m[K>("rrt_path", 10);
+      |                                            [01;31m[K^~~~[m[K
+[01m[K/home/arob/catkin_ws/src/arob_lab5-main/src/rrt_global_planner.cpp:50:44:[m[K [01;31m[Kerror: [m[K‘[01m[KPath[m[K’ is not a member of ‘[01m[Knav_msgs[m[K’
+[01m[K/home/arob/catkin_ws/src/arob_lab5-main/src/rrt_global_planner.cpp:50:64:[m[K [01;31m[Kerror: [m[Kno matching function for call to ‘[01m[Kros::NodeHandle::advertise<<expression error> >(const char [9], int)[m[K’
+   50 |         path_pub_ = nh.advertise<nav_msgs::Path>("rrt_path", 10[01;31m[K)[m[K;
+      |                                                                [01;31m[K^[m[K
+In file included from [01m[K/opt/ros/noetic/include/ros/ros.h:45[m[K,
+                 from [01m[K/home/arob/catkin_ws/src/arob_lab5-main/include/AROB_lab5/rrt_global_planner.h:2[m[K,
+                 from [01m[K/home/arob/catkin_ws/src/arob_lab5-main/src/rrt_global_planner.cpp:2[m[K:
+[01m[K/opt/ros/noetic/include/ros/node_handle.h:249:15:[m[K [01;36m[Knote: [m[Kcandidate: ‘[01m[Ktemplate<class M> ros::Publisher ros::NodeHandle::advertise(const string&, uint32_t, bool)[m[K’
+  249 |     Publisher [01;36m[Kadvertise[m[K(const std::string& topic, uint32_t queue_size, bool latch = false)
+      |               [01;36m[K^~~~~~~~~[m[K
+[01m[K/opt/ros/noetic/include/ros/node_handle.h:249:15:[m[K [01;36m[Knote: [m[K  template argument deduction/substitution failed:
+[01m[K/home/arob/catkin_ws/src/arob_lab5-main/src/rrt_global_planner.cpp:50:64:[m[K [01;31m[Kerror: [m[Ktemplate argument 1 is invalid
+   50 |         path_pub_ = nh.advertise<nav_msgs::Path>("rrt_path", 10[01;31m[K)[m[K;
+      |                                                                [01;31m[K^[m[K
+In file included from [01m[K/opt/ros/noetic/include/ros/ros.h:45[m[K,
+                 from [01m[K/home/arob/catkin_ws/src/arob_lab5-main/include/AROB_lab5/rrt_global_planner.h:2[m[K,
+                 from [01m[K/home/arob/catkin_ws/src/arob_lab5-main/src/rrt_global_planner.cpp:2[m[K:
+[01m[K/opt/ros/noetic/include/ros/node_handle.h:315:13:[m[K [01;36m[Knote: [m[Kcandidate: ‘[01m[Ktemplate<class M> ros::Publisher ros::NodeHandle::advertise(const string&, uint32_t, const SubscriberStatusCallback&, const SubscriberStatusCallback&, const VoidConstPtr&, bool)[m[K’
+  315 |   Publisher [01;36m[Kadvertise[m[K(const std::string& topic, uint32_t queue_size,
+      |             [01;36m[K^~~~~~~~~[m[K
+[01m[K/opt/ros/noetic/include/ros/node_handle.h:315:13:[m[K [01;36m[Knote: [m[K  template argument deduction/substitution failed:
+[01m[K/home/arob/catkin_ws/src/arob_lab5-main/src/rrt_global_planner.cpp:50:64:[m[K [01;31m[Kerror: [m[Ktemplate argument 1 is invalid
+   50 |         path_pub_ = nh.advertise<nav_msgs::Path>("rrt_path", 10[01;31m[K)[m[K;
+      |                                                                [01;31m[K^[m[K
+[01m[K/home/arob/catkin_ws/src/arob_lab5-main/src/rrt_global_planner.cpp:[m[K In member function ‘[01m[Kbool rrt_planner::RRTPlanner::computeRRT(std::vector<int>, std::vector<int>, std::vector<std::vector<int> >&)[m[K’:
+[01m[K/home/arob/catkin_ws/src/arob_lab5-main/src/rrt_global_planner.cpp:182:60:[m[K [01;35m[Kwarning: [m[Knarrowing conversion of ‘[01m[K(((double)(float)(x0 - (unsigned int)x_rand)) / dist)[m[K’ from ‘[01m[Kdouble[m[K’ to ‘[01m[Kfloat[m[K’ [[01;35m[K-Wnarrowing[m[K]
+  182 |             std::vector<float> direction{[01;35m[K(float)(x0-x_rand)/dist[m[K, (float)(y0-y_rand)/dist};
+      |                                          [01;35m[K~~~~~~~~~~~~~~~~~~^~~~~[m[K
+[01m[K/home/arob/catkin_ws/src/arob_lab5-main/src/rrt_global_planner.cpp:182:60:[m[K [01;35m[Kwarning: [m[Knarrowing conversion of ‘[01m[K(((double)(float)(x0 - (unsigned int)x_rand)) / dist)[m[K’ from ‘[01m[Kdouble[m[K’ to ‘[01m[Kfloat[m[K’ [[01;35m[K-Wnarrowing[m[K]
+[01m[K/home/arob/catkin_ws/src/arob_lab5-main/src/rrt_global_planner.cpp:182:85:[m[K [01;35m[Kwarning: [m[Knarrowing conversion of ‘[01m[K(((double)(float)(y0 - (unsigned int)y_rand)) / dist)[m[K’ from ‘[01m[Kdouble[m[K’ to ‘[01m[Kfloat[m[K’ [[01;35m[K-Wnarrowing[m[K]
+  182 |             std::vector<float> direction{(float)(x0-x_rand)/dist, [01;35m[K(float)(y0-y_rand)/dist[m[K};
+      |                                                                   [01;35m[K~~~~~~~~~~~~~~~~~~^~~~~[m[K
+[01m[K/home/arob/catkin_ws/src/arob_lab5-main/src/rrt_global_planner.cpp:182:85:[m[K [01;35m[Kwarning: [m[Knarrowing conversion of ‘[01m[K(((double)(float)(y0 - (unsigned int)y_rand)) / dist)[m[K’ from ‘[01m[Kdouble[m[K’ to ‘[01m[Kfloat[m[K’ [[01;35m[K-Wnarrowing[m[K]
+[01m[K/home/arob/catkin_ws/src/arob_lab5-main/src/rrt_global_planner.cpp:[m[K In member function ‘[01m[Kvoid rrt_planner::RRTPlanner::publishPath(TreeNode*)[m[K’:
+[01m[K/home/arob/catkin_ws/src/arob_lab5-main/src/rrt_global_planner.cpp:307:14:[m[K [01;31m[Kerror: [m[K‘[01m[KPath[m[K’ is not a member of ‘[01m[Knav_msgs[m[K’
+  307 |    nav_msgs::[01;31m[KPath[m[K path_msg;
+      |              [01;31m[K^~~~[m[K
+[01m[K/home/arob/catkin_ws/src/arob_lab5-main/src/rrt_global_planner.cpp:308:4:[m[K [01;31m[Kerror: [m[K‘[01m[Kpath_msg[m[K’ was not declared in this scope
+  308 |    [01;31m[Kpath_msg[m[K.header.stamp = ros::Time::now();
+      |    [01;31m[K^~~~~~~~[m[K
+make[2]: *** [CMakeFiles/rrt_global_planner_lib.dir/build.make:63: CMakeFiles/rrt_global_planner_lib.dir/src/rrt_global_planner.cpp.o] Error 1
+make[1]: *** [CMakeFiles/Makefile2:246: CMakeFiles/rrt_global_planner_lib.dir/all] Error 2
+make: *** [Makefile:141: all] Error 2
