@@ -13,12 +13,16 @@ DroneRace::DroneRace(ros::NodeHandle nh) : nh_(nh)
         targets_file_path_ = "/home/arob/catkin_ws/src/p00_arob_lab3_drones/data/gates_noise.txt";
     }
     // Try to open the targets file.
-    if (!readGates_(targets_file_path_gt, targets_file_path_))
+    gates_ = readGates_(targets_file_path_gt);
+    noisy_gates_ = readGates_(targets_file_path_);
+
+    if (gates_.empty() || noisy_gates_.empty())
     {
-        ROS_ERROR("Could not read targets from file: %s", targets_file_path_.c_str());
+        ROS_ERROR("Could not read targets from file: %s and %s", targets_file_path_gt.c_str(), targets_file_path_.c_str());
         ros::shutdown();
         return;
     }
+    
     current_goal_idx_ = 0;
 
     // This variable will control if we are in pose or cmd_vel control mode
@@ -46,28 +50,25 @@ DroneRace::DroneRace(ros::NodeHandle nh) : nh_(nh)
 }
 
 
-bool DroneRace::readGates_(string file_name, string file_name_noise) {
+std::vector<geometry_msgs::Pose> DroneRace::readGates_(string &file_name) {
         //Open the file
         ifstream input_file;
         input_file.open(file_name, ifstream::in);
-        ifstream input_file_noise;
-        input_file.open(file_name_noise, ifstream::in);
-    
+
+        std::vector<geometry_msgs::Pose> gates;
+        
         if (!input_file) {
             cerr << "Error opening the file." << endl;
-            return false;
+            return gates;
         }
-        if (!input_file_noise) {
-            cerr << "Error opening the file." << endl;
-            return false;
-        }
-        gates_.clear();
-        noisy_gates.clear();
+        
+        gates.clear();
+        
     
-        geometry_msgs::Pose temp_pose, noisy_pose;
-        double yaw = 0, noisy_yaw = 0;
-        std::string line, noisy_line;
-        while (std::getline(input_file, line) && std::getline(input_file_noise, noisy_line))
+        geometry_msgs::Pose temp_pose;
+        double yaw = 0;
+        std::string line;
+        while (std::getline(input_file, line))
         {
             std::istringstream iss(line);
             iss >> temp_pose.position.x;
@@ -75,22 +76,14 @@ bool DroneRace::readGates_(string file_name, string file_name_noise) {
             iss >> temp_pose.position.z;
             iss >> yaw;
             temp_pose.orientation = RPYToQuat_(0, 0, yaw);
-            gates_.push_back(temp_pose);
+            gates.push_back(temp_pose);
 
-            // Leer valores del archivo de ruido
-            std::istringstream noisy_iss(line);
-            noisy_iss >> noisy_pose.position.x;
-            noisy_iss >> noisy_pose.position.y;
-            noisy_iss >> noisy_pose.position.z;
-            noisy_iss >> noisy_yaw;
-            noisy_pose.orientation = RPYToQuat_(0, 0, noisy_yaw);
-            noisy_gates.push_back(noisy_pose);
         }
 
     // Close the file
     input_file.close();
-    input_file_noise.close();
-    return true;
+
+    return gates;
 }
 
 void DroneRace::commandTimerCallback_(const ros::TimerEvent& event) {
@@ -134,7 +127,7 @@ void DroneRace::generateTrajectory_() {
     start.makeStartOrEnd(Eigen::Vector3d(0,0,0), derivative_to_optimize);
     vertices.push_back(start);
 
-    for (geometry_msgs::Pose gate : gates_) {
+    for (geometry_msgs::Pose gate : noisy_gates_) {
         Eigen::Matrix<double, 3, 3> rotate_gate = quatToRMatrix_(gate.orientation);
         Eigen::Vector3d desired_velocity(vel_gate_mod,0,0);
         Eigen::Vector3d velocity2 = rotate_gate * desired_velocity;
@@ -297,7 +290,7 @@ void DroneRace::drawGates_() {
     for (geometry_msgs::Pose gate : gates_) {
         drawGateMarkers_(gate,id, type);
     }
-    for (geometry_msgs::Pose gate : noisy_gates) {
+    for (geometry_msgs::Pose gate : noisy_gates_) {
         drawGateMarkers_(gate,id, type + 1);
     }
 }
@@ -338,11 +331,21 @@ void DroneRace::drawGateMarkers_(geometry_msgs::Pose gate, int &id, int type){
         marker.color.r = 0.0;
         marker.color.g = 1.0;
         marker.color.b = 0.0;
+
+        line_marker.color.a = 1.0;
+        line_marker.color.r = 0.0;
+        line_marker.color.g = 1.0;
+        line_marker.color.b = 0.0;
     }else {
         marker.color.a = 1.0;
         marker.color.r = 1.0;
         marker.color.g = 0.0;
         marker.color.b = 0.0;
+
+        line_marker.color.a = 1.0;
+        line_marker.color.r = 1.0;
+        line_marker.color.g = 0.0;
+        line_marker.color.b = 0.0;
     }
     float gate_size = 0.75;
 

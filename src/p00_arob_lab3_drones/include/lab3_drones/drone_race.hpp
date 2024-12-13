@@ -45,7 +45,7 @@ private:
     std::string targets_file_path_;
     std::string targets_file_path_gt;
     std::vector<geometry_msgs::Pose> gates_;
-    std::vector<geometry_msgs::Pose> noisy_gates;
+    std::vector<geometry_msgs::Pose> noisy_gates_;
 
     // Trajectory
     mav_trajectory_generation::Trajectory trajectory_;
@@ -65,7 +65,7 @@ private:
     //Id markers
     int id_marker = 0;
 
-    bool readGates_(std::string file_name, std::string file_name_noise);
+    std::vector<geometry_msgs::Pose> readGates_(std::string &file_name);
 
     void generateTrajectoryExample_(); 
     void generateTrajectory_();

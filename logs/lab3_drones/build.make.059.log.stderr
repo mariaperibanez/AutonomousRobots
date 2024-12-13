@@ -1,0 +1,18 @@
+[01m[K/home/arob/catkin_ws/src/p00_arob_lab3_drones/src/drone_race.cpp:53:34:[m[K [01;31m[Kerror: [m[Kno declaration matches ‘[01m[Kstd::vector<geometry_msgs::Pose_<std::allocator<void> > > DroneRace::readGates_(std::string&)[m[K’
+   53 | std::vector<geometry_msgs::Pose> [01;31m[KDroneRace[m[K::readGates_(string &file_name) {
+      |                                  [01;31m[K^~~~~~~~~[m[K
+In file included from [01m[K/home/arob/catkin_ws/src/p00_arob_lab3_drones/src/drone_race.cpp:1[m[K:
+[01m[K/home/arob/catkin_ws/src/p00_arob_lab3_drones/include/lab3_drones/drone_race.hpp:68:38:[m[K [01;36m[Knote: [m[Kcandidate is: ‘[01m[Kstd::vector<geometry_msgs::Pose_<std::allocator<void> > > DroneRace::readGates_(std::string)[m[K’
+   68 |     std::vector<geometry_msgs::Pose> [01;36m[KreadGates_[m[K(std::string file_name);
+      |                                      [01;36m[K^~~~~~~~~~[m[K
+[01m[K/home/arob/catkin_ws/src/p00_arob_lab3_drones/include/lab3_drones/drone_race.hpp:24:7:[m[K [01;36m[Knote: [m[K‘[01m[Kclass DroneRace[m[K’ defined here
+   24 | class [01;36m[KDroneRace[m[K {
+      |       [01;36m[K^~~~~~~~~[m[K
+[01m[K/home/arob/catkin_ws/src/p00_arob_lab3_drones/src/drone_race.cpp:[m[K In member function ‘[01m[Kvoid DroneRace::drawGates_()[m[K’:
+[01m[K/home/arob/catkin_ws/src/p00_arob_lab3_drones/src/drone_race.cpp:293:37:[m[K [01;31m[Kerror: [m[K‘[01m[Knoisy_gates[m[K’ was not declared in this scope; did you mean ‘[01m[Knoisy_gates_[m[K’?
+  293 |     for (geometry_msgs::Pose gate : [01;31m[Knoisy_gates[m[K) {
+      |                                     [01;31m[K^~~~~~~~~~~[m[K
+      |                                     [32m[Knoisy_gates_[m[K
+make[2]: *** [CMakeFiles/drone_race.dir/build.make:63: CMakeFiles/drone_race.dir/src/drone_race.cpp.o] Error 1
+make[1]: *** [CMakeFiles/Makefile2:200: CMakeFiles/drone_race.dir/all] Error 2
+make: *** [Makefile:141: all] Error 2
