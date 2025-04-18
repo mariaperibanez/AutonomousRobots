@@ -45,6 +45,16 @@ DroneRace::DroneRace(ros::NodeHandle nh) : nh_(nh)
     drawGates_();
     generateTrajectory_();
 
+    // Initialize Kalman filters for each gate
+    process_noise_ = Eigen::Matrix3d::Identity() * 0.1; // Example process noise
+    measurement_noise_ = Eigen::Matrix3d::Identity() * 0.5; // Example measurement noise
+
+    for (const auto& gate : gates_) {
+        Eigen::Vector3d initial_position(gate.position.x, gate.position.y, gate.position.z);
+        Eigen::Matrix3d initial_uncertainty = Eigen::Matrix3d::Identity() * 1.0; // Initial uncertainty
+        kalman_filters_.emplace_back(initial_position, initial_uncertainty);
+    }
+
     // Create a timer to update the gates
     gate_update_timer_ = nh_.createTimer(
         ros::Duration(1.0),  // tiempo t
@@ -480,13 +490,26 @@ void DroneRace::drawTrajectoryMarkers_(){
 
 void DroneRace::updateGateObservations_() {
     noisy_gates_.clear();
-    for (const auto& gt : true_gates_) {
-        geometry_msgs::Pose noisy_pose = gt;
+    for (size_t i = 0; i < true_gates_.size(); ++i) {
+        geometry_msgs::Pose noisy_pose = true_gates_[i];
 
         // Simulate noise in the position of the gate
         noisy_pose.position.x += distribution(generator); // distribución normal
         noisy_pose.position.y += distribution(generator);
         noisy_pose.position.z += distribution(generator);
+
+        // Update Kalman filter with noisy observation
+        Eigen::Vector3d measurement(noisy_pose.position.x, noisy_pose.position.y, noisy_pose.position.z);
+        kalman_filters_[i].predict(process_noise_);
+        kalman_filters_[i].update(measurement, measurement_noise_);
+
+        // Get the filtered position
+        Eigen::Vector3d filtered_position = kalman_filters_[i].getState();
+
+        // Update the noisy_gates_ with the filtered position
+        noisy_pose.position.x = filtered_position.x();
+        noisy_pose.position.y = filtered_position.y();
+        noisy_pose.position.z = filtered_position.z();
 
         noisy_gates_.push_back(noisy_pose);
     }

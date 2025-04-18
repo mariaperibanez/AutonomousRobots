@@ -21,6 +21,8 @@
 #include <mav_trajectory_generation_ros/ros_conversions.h>
 #include <mav_trajectory_generation_ros/ros_visualization.h>
 
+#include "kalman_filter.hpp"
+
 class DroneRace {
 
 public:
@@ -69,6 +71,11 @@ private:
     // Random number generator for noise simulation of gates
     std::default_random_engine generator;
     std::normal_distribution<double> distribution{0.0, 0.3};  // media 0, desviación 0.3
+
+    // Kalman filter for each gate
+    std::vector<KalmanFilter> kalman_filters_; // Kalman filters for each gate
+    Eigen::Matrix3d process_noise_;            // Process noise covariance
+    Eigen::Matrix3d measurement_noise_; 
 
 
     std::vector<geometry_msgs::Pose> readGates_(std::string &file_name);
